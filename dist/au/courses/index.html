@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="Qg5zecJxkXRGdMaYeHKLb5MZvv5M22NLbm4HBscm">
+    <title>Science Villa</title>
+    <link rel="preload" as="style" href="http://127.0.0.1:8000/build/assets/app-BY0FlDmp.css" /><link rel="modulepreload" href="http://127.0.0.1:8000/build/assets/app-DNxiirP_.js" /><link rel="stylesheet" href="http://127.0.0.1:8000/build/assets/app-BY0FlDmp.css" /><script type="module" src="http://127.0.0.1:8000/build/assets/app-DNxiirP_.js"></script>    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+    </head>
+<body class="min-h-screen flex flex-col font-sans bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="/au" class="text-xl font-bold text-blue-600">Science Villa</a>
+            <nav class="hidden md:flex space-x-6 text-sm">
+                <a href="/au" class="hover:text-blue-600">Home</a>
+                <a href="/au/about" class="hover:text-blue-600">About Us</a>
+                <a href="/au/courses" class="hover:text-blue-600">Courses</a>
+                <a href="/au/results" class="hover:text-blue-600">Results</a>
+                <a href="/au/gallery" class="hover:text-blue-600">Gallery</a>
+                <a href="/au/testimonials" class="hover:text-blue-600">Testimonials</a>
+                <a href="/au/blog" class="hover:text-blue-600">Blog</a>
+                <a href="/au/contact" class="hover:text-blue-600">Contact Us</a>
+            </nav>
+            <!-- Country Switcher -->
+            <div class="relative">
+                <select id="countrySwitcher" class="border rounded p-1 text-sm" onchange="location = this.value;">
+                                            <option value="/in" >🇮🇳 IN</option>
+                                            <option value="/uk" >🇬🇧 UK</option>
+                                            <option value="/us" >🇺🇸 US</option>
+                                            <option value="/ca" >🇨🇦 CA</option>
+                                            <option value="/au" selected>🇦🇺 AU</option>
+                                    </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1">
+        
+<div id="coursesApp"
+     class="container mx-auto px-4 py-16"
+     data-courses='[{"country":"au","title":"Year 8 Maths \u2013 NSW","level":8,"subject":"Maths","board":"NSW","mode":"Online","description":"Australian curriculum-aligned content.","cta":"Enroll Now"},{"country":"au","title":"Year 8 Science \u2013 VIC","level":8,"subject":"Science","board":"VIC","mode":"Online","description":"Science projects \u0026 activities.","cta":"View Details"},{"country":"au","title":"Year 9 Maths \u2013 NSW","level":9,"subject":"Maths","board":"NSW","mode":"Online \u0026 Offline","description":"Problem-solving \u0026 real-life math.","cta":"View Details"},{"country":"au","title":"Year 9 Science \u2013 VIC","level":9,"subject":"Science","board":"VIC","mode":"Online","description":"Chemical reactions \u0026 ecology.","cta":"Enroll Now"},{"country":"au","title":"Year 10 Maths \u2013 NSW","level":10,"subject":"Maths","board":"NSW","mode":"Online","description":"Functions, geometry, stats.","cta":"Enroll Now"},{"country":"au","title":"Year 10 Science \u2013 VIC","level":10,"subject":"Science","board":"VIC","mode":"Online \u0026 Offline","description":"Complete Year 10 science course.","cta":"View Details"},{"country":"au","title":"Year 11 Maths \u2013 NSW","level":11,"subject":"Maths","board":"NSW","mode":"Online","description":"Advanced mathematics concepts.","cta":"View Details"},{"country":"au","title":"Year 11 Physics \u2013 VIC","level":11,"subject":"Physics","board":"VIC","mode":"Online","description":"Physics principles \u0026 simulations.","cta":"Enroll Now"},{"country":"au","title":"Year 12 Maths \u2013 NSW","level":12,"subject":"Maths","board":"NSW","mode":"Online","description":"Calculus, algebra, probability.","cta":"Enroll Now"},{"country":"au","title":"Year 12 Physics \u2013 VIC","level":12,"subject":"Physics","board":"VIC","mode":"Online","description":"Practical physics \u0026 theory.","cta":"View Details"}]'
+     data-level-label="Year"
+     data-max-level="13"
+     data-country="au">
+
+    <h1 class="text-3xl font-bold mb-6">Courses Offered – Australia</h1>
+    <div class="flex flex-col md:flex-row md:items-end gap-4 mb-8 bg-stone-50/60 p-4 rounded-lg shadow">
+        <div>
+            <label class="block text-base md:text-lg font-semibold mb-1 text-stone-700" for="levelSelect">Select Year</label>
+            <select id="levelSelect" class="w-40 text-sm h-9 border border-amber-400 bg-amber-50/60 rounded-md px-3 focus:outline-none focus:ring-2 focus:ring-amber-600 shadow-inner"></select>
+        </div>
+        <div id="subjectBlock" class="hidden">
+            <label class="block text-base md:text-lg font-semibold mb-1 text-stone-700" for="subjectSelect">Select Subject</label>
+            <select id="subjectSelect" class="w-52 text-sm h-9 border border-emerald-400 bg-emerald-50/60 rounded-md px-3 focus:outline-none focus:ring-2 focus:ring-emerald-600 shadow-inner"></select>
+        </div>
+    </div>
+
+    <div id="coursesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6" data-aos="fade-up"></div>
+</div>
+
+<script defer>
+// Basic vanilla JS filtering
+(function(){
+    const app = document.getElementById('coursesApp');
+    if(!app) return;
+    const courses = JSON.parse(app.dataset.courses);
+    const levelLabel = app.dataset.levelLabel;
+    const maxLevel = parseInt(app.dataset.maxLevel);
+    const country = app.dataset.country;
+
+    const levelSelect = document.getElementById('levelSelect');
+    const subjectBlock = document.getElementById('subjectBlock');
+    const subjectSelect = document.getElementById('subjectSelect');
+    const grid = document.getElementById('coursesGrid');
+    const colors = ['bg-amber-50','bg-lime-50','bg-emerald-50','bg-orange-50','bg-blue-50','bg-indigo-50','bg-purple-50','bg-pink-50'];
+
+    // populate level options (8 .. maxLevel)
+    const allSorted = [...courses].sort((a,b)=>a.level-b.level);
+    renderCourses(allSorted);
+    levelSelect.innerHTML = `<option value="">Select ${levelLabel}</option>`;
+    for(let l=8; l<=maxLevel; l++){
+        levelSelect.innerHTML += `<option value="${l}">${levelLabel} ${l}</option>`;
+    }
+
+    levelSelect.addEventListener('change', () => {
+        const level = parseInt(levelSelect.value);
+        if(isNaN(level)){
+            subjectBlock.classList.add('hidden');
+            subjectSelect.value='';
+            renderCourses(allSorted);
+            return;
+        }
+        // determine subjects
+        const coreLower = ['Maths','Science'];
+        const coreHigher = ['Maths','Physics','Chemistry','Biology','English'];
+        const subjects = level <= 10 ? coreLower : coreHigher;
+        subjectSelect.innerHTML = '<option value="">Select Subject</option>' + subjects.map(s=>`<option value="${s}">${s}</option>`).join('');
+        subjectBlock.classList.remove('hidden');
+        subjectSelect.value='';
+        const levelFiltered = courses.filter(c=>c.level === level);
+        renderCourses(levelFiltered);
+    });
+
+    subjectSelect.addEventListener('change', () => {
+        const level = parseInt(levelSelect.value);
+        const subject = subjectSelect.value;
+        if(!subject) { renderCourses(courses.filter(c=>c.level===level)); return; }
+        const filtered = courses.filter(c => c.level === level && c.subject === subject);
+        renderCourses(filtered);
+    });
+
+    function renderCourses(list){
+        if(list.length === 0){
+            grid.innerHTML = '<p class="col-span-full text-center text-gray-600">No courses found for the selected filters.</p>';
+            return;
+        }
+        grid.innerHTML = list.map((c,i) => {
+            const slug = c.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+            const linkPrefix = `/${country}/course-detail?slug=${slug}`;
+            return `<div class="${colors[i%colors.length]} rounded-lg shadow p-4 text-sm">
+                <a href="${linkPrefix}" class="text-2xl font-extrabold block mb-2">📘 ${c.title}</a>
+                <p class="text-sm mb-1">${levelLabel} ${c.level} | ${c.board}</p>
+                <p class="text-sm mb-1">Mode: ${c.mode}</p>
+                <p class="text-sm text-gray-700 mb-4">${c.description}</p>
+            </div>`;
+        }).join('');
+        
+    }
+})();
+</script>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-6">
+        <div class="container mx-auto px-4 text-center text-sm">
+            © 2025 Science Villa | Designed with ❤️
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({ once: true, duration: 800, offset: 120 });
+            // animate counters
+            const counters = document.querySelectorAll('.counter');
+            const speed = 40;
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting){
+                        const el = entry.target;
+                        const updateCount = () => {
+                            const target = +el.dataset.count;
+                            const count  = +el.innerText.replace(/\D/g,'');
+                            const inc = Math.ceil(target / speed);
+                            if(count < target){
+                                el.innerText = count + inc + (el.dataset.percent ? '%' : '+');
+                                setTimeout(updateCount, 30);
+                            } else {
+                                el.innerText = target + (el.dataset.percent ? '%' : '+');
+                            }
+                        };
+                        updateCount();
+                        observer.unobserve(el);
+                    }
+                })
+            }, { threshold: 0.6 });
+            counters.forEach(c=>observer.observe(c));
+        });
+    </script>
+    </body>
+</html>

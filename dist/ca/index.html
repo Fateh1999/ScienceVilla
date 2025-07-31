@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="Qg5zecJxkXRGdMaYeHKLb5MZvv5M22NLbm4HBscm">
+    <title>Science Villa</title>
+    <link rel="preload" as="style" href="http://127.0.0.1:8000/build/assets/app-BY0FlDmp.css" /><link rel="modulepreload" href="http://127.0.0.1:8000/build/assets/app-DNxiirP_.js" /><link rel="stylesheet" href="http://127.0.0.1:8000/build/assets/app-BY0FlDmp.css" /><script type="module" src="http://127.0.0.1:8000/build/assets/app-DNxiirP_.js"></script>    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+    <style>
+.course-card { transition: transform 0.2s ease; }
+</style>
+</head>
+<body class="min-h-screen flex flex-col font-sans bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="/ca" class="text-xl font-bold text-blue-600">Science Villa</a>
+            <nav class="hidden md:flex space-x-6 text-sm">
+                <a href="/ca" class="hover:text-blue-600">Home</a>
+                <a href="/ca/about" class="hover:text-blue-600">About Us</a>
+                <a href="/ca/courses" class="hover:text-blue-600">Courses</a>
+                <a href="/ca/results" class="hover:text-blue-600">Results</a>
+                <a href="/ca/gallery" class="hover:text-blue-600">Gallery</a>
+                <a href="/ca/testimonials" class="hover:text-blue-600">Testimonials</a>
+                <a href="/ca/blog" class="hover:text-blue-600">Blog</a>
+                <a href="/ca/contact" class="hover:text-blue-600">Contact Us</a>
+            </nav>
+            <!-- Country Switcher -->
+            <div class="relative">
+                <select id="countrySwitcher" class="border rounded p-1 text-sm" onchange="location = this.value;">
+                                            <option value="/in" >🇮🇳 IN</option>
+                                            <option value="/uk" >🇬🇧 UK</option>
+                                            <option value="/us" >🇺🇸 US</option>
+                                            <option value="/ca" selected>🇨🇦 CA</option>
+                                            <option value="/au" >🇦🇺 AU</option>
+                                    </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1">
+        
+<section class="relative isolate h-[50vh] md:h-[70vh] bg-cover bg-center" style="background-image:url('/images/hero.jpg')">
+    <!-- Gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-sky-900/90 via-indigo-900/80 to-sky-900/90"></div>
+
+    <!-- Decorative blurred circles -->
+    <span class="absolute -top-10 -left-10 w-60 h-60 bg-sky-400/40 rounded-full blur-3xl"></span>
+    <span class="absolute top-20 right-0 w-96 h-96 bg-indigo-400/30 rounded-full blur-3xl"></span>
+
+    <!-- Content -->
+    <div class="relative z-10 h-full flex items-center px-6 lg:px-16" data-aos="fade-right">
+        <div class="max-w-3xl text-white space-y-6">
+            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 text-transparent bg-clip-text drop-shadow-lg">
+                Empowering Future Scholars Worldwide
+            </h1>
+            <!-- Accent divider -->
+            <div class="h-1 w-24 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 rounded-full"></div>
+            <p class="text-lg sm:text-2xl lg:text-3xl font-semibold tracking-wide drop-shadow text-white/95">Personalized Coaching for Canada Curriculum</p>
+            <div class="flex flex-wrap items-center gap-4 text-white/85 text-sm sm:text-base lg:text-lg">
+                    <div class="flex items-center gap-1"><i class="bi bi-mortarboard-fill text-yellow-400"></i><span> &nbsp; Expert Tutors</span></div>
+                    <span class="hidden sm:block">|</span>
+                    <div class="flex items-center gap-1"><i class="bi bi-lightbulb-fill text-pink-500"></i><span> &nbsp; Weekly Tests</span></div>
+                    <span class="hidden sm:block">|</span>
+                    <div class="flex items-center gap-1"><i class="bi bi-question-circle-fill text-purple-400"></i><span> &nbsp; 24×7 Doubt Support</span></div>
+                </div>
+            <div class="space-x-4 pt-2" data-aos="zoom-in" data-aos-delay="300">
+                <a href="/ca/courses" class="relative inline-flex items-center gap-2 px-1 py-1 rounded-full bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-yellow-500 hover:to-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-400/50 transition duration-500 ease-in-out">  
+                        <span class="relative flex items-center gap-2 px-6 py-3 text-base font-semibold text-white bg-sky-900/80 rounded-full backdrop-blur-md">
+                            <i class="bi bi-journal-bookmark-fill"></i><span>View Courses</span>
+                        </span>
+                    </a>
+                <a href="/ca/contact" class="relative inline-flex items-center gap-2 px-6 py-3 text-base font-semibold text-sky-900 rounded-full bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white/70 transition">  
+                        <i class="bi bi-telephone-fill text-pink-600"></i><span>Free Demo</span>
+                    </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white opacity-70 animate-bounce" data-aos="fade-up" data-aos-delay="600">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+    </div>
+</section>
+
+
+<section class="bg-white shadow py-[3vh]" data-aos="fade-up" data-aos-delay="500">
+    <div class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+        <div>
+            <p class="text-3xl font-extrabold text-blue-600 counter" data-count="6">0+</p>
+            <p class="mt-1 uppercase text-sm text-gray-600">Years Experience</p>
+        </div>
+        <div>
+            <p class="text-3xl font-extrabold text-blue-600 counter" data-count="1200">0+</p>
+            <p class="mt-1 uppercase text-sm text-gray-600">Students Taught</p>
+        </div>
+        <div>
+            <p class="text-3xl font-extrabold text-blue-600 counter" data-count="92" data-percent="1">0%</p>
+            <p class="mt-1 uppercase text-sm text-gray-600">Success Rate</p>
+        </div>
+    </div>
+</section>
+
+
+<section class="container mx-auto px-4 py-16 bg-gray-50 border-t border-gray-200" data-aos="fade-up" data-aos-delay="600">
+    <h1 class="text-4xl font-bold text-center mb-10">Why Choose Science Villa?</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative group" data-aos="zoom-in" data-aos-delay="0">
+            <!-- Rotated gradient background */-->
+            <div class="absolute inset-0 bg-gradient-to-br from-indigo-800 to-purple-800 rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+            <!-- Foreground card -->
+            <div class="relative bg-gradient-to-br from-purple-500 to-indigo-500 p-8 rounded-2xl shadow-lg flex flex-col items-center text-white">
+                <div class="text-4xl mb-4">🧑‍🏫</div>
+                <p class="font-semibold leading-snug text-base text-white">Experienced Tutors</p>
+            </div>
+        </div>
+                <div class="relative group" data-aos="zoom-in" data-aos-delay="100">
+            <!-- Rotated gradient background */-->
+            <div class="absolute inset-0 bg-gradient-to-br from-rose-800 to-pink-800 rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+            <!-- Foreground card -->
+            <div class="relative bg-gradient-to-br from-pink-500 to-rose-500 p-8 rounded-2xl shadow-lg flex flex-col items-center text-white">
+                <div class="text-4xl mb-4">🤝</div>
+                <p class="font-semibold leading-snug text-base text-white">One-on-One Doubt Sessions</p>
+            </div>
+        </div>
+                <div class="relative group" data-aos="zoom-in" data-aos-delay="200">
+            <!-- Rotated gradient background */-->
+            <div class="absolute inset-0 bg-gradient-to-br from-orange-700 to-amber-700 rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+            <!-- Foreground card -->
+            <div class="relative bg-gradient-to-br from-orange-400 to-amber-500 p-8 rounded-2xl shadow-lg flex flex-col items-center text-white">
+                <div class="text-4xl mb-4">📝</div>
+                <p class="font-semibold leading-snug text-base text-white">Weekly Mock Tests</p>
+            </div>
+        </div>
+                <div class="relative group" data-aos="zoom-in" data-aos-delay="300">
+            <!-- Rotated gradient background */-->
+            <div class="absolute inset-0 bg-gradient-to-br from-emerald-800 to-teal-800 rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+            <!-- Foreground card -->
+            <div class="relative bg-gradient-to-br from-teal-500 to-emerald-500 p-8 rounded-2xl shadow-lg flex flex-col items-center text-white">
+                <div class="text-4xl mb-4">📈</div>
+                <p class="font-semibold leading-snug text-base text-white">Personalized Feedback</p>
+            </div>
+        </div>
+                <div class="relative group" data-aos="zoom-in" data-aos-delay="400">
+            <!-- Rotated gradient background */-->
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-800 to-sky-800 rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+            <!-- Foreground card -->
+            <div class="relative bg-gradient-to-br from-sky-500 to-blue-500 p-8 rounded-2xl shadow-lg flex flex-col items-center text-white">
+                <div class="text-4xl mb-4">🌐</div>
+                <p class="font-semibold leading-snug text-base text-white">Online &amp; Offline Modes</p>
+            </div>
+        </div>
+                <div class="relative group" data-aos="zoom-in" data-aos-delay="500">
+            <!-- Rotated gradient background */-->
+            <div class="absolute inset-0 bg-gradient-to-br from-green-800 to-lime-800 rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+            <!-- Foreground card -->
+            <div class="relative bg-gradient-to-br from-lime-500 to-green-500 p-8 rounded-2xl shadow-lg flex flex-col items-center text-white">
+                <div class="text-4xl mb-4">👨‍👩‍👧‍👦</div>
+                <p class="font-semibold leading-snug text-base text-white">Trusted by Parents Globally</p>
+            </div>
+        </div>
+            </div>
+</section>
+
+
+<section class="relative py-16 border-t border-gray-200 bg-cover bg-center" style="background-image:url('/images/featured-bg.jpg')">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative container mx-auto px-4">
+        <h1 class="text-4xl font-bold mb-8 text-center text-white">📘 Featured Courses – Canada</h1>
+            
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col aspect-[4/3]">
+                <h3 class="text-xl font-semibold mb-2">📘 Grade 10 Science – Ontario Curriculum</h3>
+                <p class="text-base mb-1">🎯 Grade 10</p>
+                <p class="text-base mb-1">🧠 Ontario</p>
+                <p class="text-base mb-1">⏱ 1 Year</p>
+                <p class="text-base mb-1">🧑‍🏫 Online</p>
+                <p class="text-sm text-gray-700 mb-4">Detailed lessons in Biology, Chemistry, Physics with labs &amp; tasks.</p>
+                <a href="/ca/courses" class="mt-auto btn btn-outline btn-sm">View Details</a>
+            </div>
+                        <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col aspect-[4/3]">
+                <h3 class="text-xl font-semibold mb-2">📘 Canadian University Prep – Maths</h3>
+                <p class="text-base mb-1">🎯 Grade 11–12</p>
+                <p class="text-base mb-1">🧠 Canada (All Provinces)</p>
+                <p class="text-base mb-1">⏱ 9 Months</p>
+                <p class="text-base mb-1">🧑‍🏫 Online</p>
+                <p class="text-sm text-gray-700 mb-4">Designed to meet prerequisites for top universities in Canada.</p>
+                <a href="/ca/courses" class="mt-auto btn btn-primary btn-sm">Enroll Now</a>
+            </div>
+                        <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col aspect-[4/3]">
+                <h3 class="text-xl font-semibold mb-2">📘 BC Grade 9 English Skills</h3>
+                <p class="text-base mb-1">🎯 Grade 9</p>
+                <p class="text-base mb-1">🧠 British Columbia</p>
+                <p class="text-base mb-1">⏱ 6 Months</p>
+                <p class="text-base mb-1">🧑‍🏫 Online</p>
+                <p class="text-sm text-gray-700 mb-4">Boost reading &amp; writing with creative tasks and grammar drills.</p>
+                <a href="/ca/courses" class="mt-auto btn btn-outline btn-sm">View Details</a>
+            </div>
+                    </div>
+
+        <div class="text-center mt-8">
+            <a href="/ca/courses" class="btn btn-outline btn-sm">🔍 Browse All Courses</a>
+        </div>
+    </div>
+</section>
+
+
+<section class="relative py-16 border-gray-200 bg-cover bg-center" style="background-image:url('/images/cocurricular-bg.jpg')">
+    <div class="absolute inset-0 bg-white/20"></div>
+    <div class="relative container mx-auto px-4">
+        <h1 class="text-4xl font-bold mb-8 text-center text-gray-900">🎨 Co-Curricular Courses</h1>
+                <div class="card-container grid grid-cols-1 md:grid-cols-4 gap-8">
+                        <div class="bg-gray-900 bg-cover bg-center text-white rounded-xl shadow-lg p-8 flex flex-col aspect-[4/3] course-card" style="background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('/images/drawing.jpeg')">
+                <h3 class="text-xl font-semibold mb-2">🖍️ Drawing Fundamentals</h3>
+                <p class="text-base mb-1">⏱ 6 Weeks</p>
+                <p class="text-base mb-1">🧑‍🏫 Online</p>
+                <p class="text-sm text-gray-200 mb-4">Learn line, shape and shade basics.</p>
+                <a href="/ca/courses" class="mt-auto btn btn-primary btn-sm">Enroll Now</a>
+            </div>
+                        <div class="bg-gray-900 bg-cover bg-center text-white rounded-xl shadow-lg p-8 flex flex-col aspect-[4/3] course-card" style="background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('/images/sketching.jpeg')">
+                <h3 class="text-xl font-semibold mb-2">✏️ Sketching &amp; Illustration</h3>
+                <p class="text-base mb-1">⏱ 8 Weeks</p>
+                <p class="text-base mb-1">🧑‍🏫 Online</p>
+                <p class="text-sm text-gray-200 mb-4">Develop sketching techniques and perspective.</p>
+                <a href="/ca/courses" class="mt-auto btn btn-outline btn-sm">View Details</a>
+            </div>
+                        <div class="bg-gray-900 bg-cover bg-center text-white rounded-xl shadow-lg p-8 flex flex-col aspect-[4/3] course-card" style="background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('/images/painting.jpeg')">
+                <h3 class="text-xl font-semibold mb-2">🎨 Watercolour Painting</h3>
+                <p class="text-base mb-1">⏱ 10 Weeks</p>
+                <p class="text-base mb-1">🧑‍🏫 Online</p>
+                <p class="text-sm text-gray-200 mb-4">Explore washes, blending and colour theory.</p>
+                <a href="/ca/courses" class="mt-auto btn btn-primary btn-sm">Enroll Now</a>
+            </div>
+                        <div class="bg-gray-900 bg-cover bg-center text-white rounded-xl shadow-lg p-8 flex flex-col aspect-[4/3] course-card" style="background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('/images/calligraphy.jpeg')">
+                <h3 class="text-xl font-semibold mb-2">✒️ Modern Calligraphy</h3>
+                <p class="text-base mb-1">⏱ 4 Weeks</p>
+                <p class="text-base mb-1">🧑‍🏫 Online</p>
+                <p class="text-sm text-gray-200 mb-4">Master brush lettering and styles.</p>
+                <a href="/ca/courses" class="mt-auto btn btn-outline btn-sm">View Details</a>
+            </div>
+                    </div>
+        <div class="text-center mt-8">
+            <a href="/ca/courses" class="btn btn-outline btn-sm">✨ Explore All Co-Curricular</a>
+        </div>
+    </div>
+</section>
+
+
+<section class="bg-white border-t border-gray-200 py-16">
+    <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-bold text-center mb-8">🎉 Meet Our Toppers</h1>
+        
+        <!-- Marquee - full width -->
+        <div class="relative overflow-hidden w-screen left-1/2 -translate-x-1/2 transform" data-aos="fade-up" data-aos-delay="300">
+            <div class="marquee-container py-8">
+                <div class="marquee-content">
+                                            <div class="topper-card">
+                            <img src="/images/topper1.jpg" alt="Aarav Sharma" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+                            <p class="font-semibold">Aarav Sharma</p>
+                            <p class="text-sm text-gray-600">98% CBSE Class 10</p>
+                        </div>
+                                            <div class="topper-card">
+                            <img src="/images/topper2.jpg" alt="Sarah Kumar" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+                            <p class="font-semibold">Sarah Kumar</p>
+                            <p class="text-sm text-gray-600">Grade 9 – AQA GCSE</p>
+                        </div>
+                                            <div class="topper-card">
+                            <img src="/images/topper3.jpg" alt="Rajat Bains" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+                            <p class="font-semibold">Rajat Bains</p>
+                            <p class="text-sm text-gray-600">710/720 NEET 2024</p>
+                        </div>
+                                            <div class="topper-card">
+                            <img src="/images/topper4.jpg" alt="Emma Lee" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+                            <p class="font-semibold">Emma Lee</p>
+                            <p class="text-sm text-gray-600">SAT 1540/1600</p>
+                        </div>
+                                            <div class="topper-card">
+                            <img src="/images/topper1.jpg" alt="Priya Patel" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+                            <p class="font-semibold">Priya Patel</p>
+                            <p class="text-sm text-gray-600">95% CBSE Class 12</p>
+                        </div>
+                                            <div class="topper-card">
+                            <img src="/images/topper2.jpg" alt="Michael Chen" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+                            <p class="font-semibold">Michael Chen</p>
+                            <p class="text-sm text-gray-600">A* A-Level Physics</p>
+                        </div>
+                                            <div class="topper-card">
+                            <img src="/images/topper3.jpg" alt="Ananya Singh" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+                            <p class="font-semibold">Ananya Singh</p>
+                            <p class="text-sm text-gray-600">JEE Main 99.8%</p>
+                        </div>
+                                            <div class="topper-card">
+                            <img src="/images/topper4.jpg" alt="David Wilson" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+                            <p class="font-semibold">David Wilson</p>
+                            <p class="text-sm text-gray-600">AP Calculus 5/5</p>
+                        </div>
+                                    </div>
+                <!-- Duplicate content for seamless loop -->
+                <div class="marquee-content" aria-hidden="true">
+                                            <div class="topper-card">
+                            <img src="/images/topper1.jpg" alt="Aarav Sharma" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+                            <p class="font-semibold">Aarav Sharma</p>
+                            <p class="text-sm text-gray-600">98% CBSE Class 10</p>
+                        </div>
+                                            <div class="topper-card">
+                            <img src="/images/topper2.jpg" alt="Sarah Kumar" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+                            <p class="font-semibold">Sarah Kumar</p>
+                            <p class="text-sm text-gray-600">Grade 9 – AQA GCSE</p>
+                        </div>
+                                            <div class="topper-card">
+                            <img src="/images/topper3.jpg" alt="Rajat Bains" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+                            <p class="font-semibold">Rajat Bains</p>
+                            <p class="text-sm text-gray-600">710/720 NEET 2024</p>
+                        </div>
+                                            <div class="topper-card">
+                            <img src="/images/topper4.jpg" alt="Emma Lee" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+                            <p class="font-semibold">Emma Lee</p>
+                            <p class="text-sm text-gray-600">SAT 1540/1600</p>
+                        </div>
+                                            <div class="topper-card">
+                            <img src="/images/topper1.jpg" alt="Priya Patel" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+                            <p class="font-semibold">Priya Patel</p>
+                            <p class="text-sm text-gray-600">95% CBSE Class 12</p>
+                        </div>
+                                            <div class="topper-card">
+                            <img src="/images/topper2.jpg" alt="Michael Chen" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+                            <p class="font-semibold">Michael Chen</p>
+                            <p class="text-sm text-gray-600">A* A-Level Physics</p>
+                        </div>
+                                            <div class="topper-card">
+                            <img src="/images/topper3.jpg" alt="Ananya Singh" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+                            <p class="font-semibold">Ananya Singh</p>
+                            <p class="text-sm text-gray-600">JEE Main 99.8%</p>
+                        </div>
+                                            <div class="topper-card">
+                            <img src="/images/topper4.jpg" alt="David Wilson" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
+                            <p class="font-semibold">David Wilson</p>
+                            <p class="text-sm text-gray-600">AP Calculus 5/5</p>
+                        </div>
+                                    </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-6">
+            <a href="/ca/results" class="btn btn-outline btn-sm">📜 See Full Result List</a>
+        </div>
+</section>
+
+
+<section class="bg-gray-50 py-16 border-t border-gray-200">
+    <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-bold text-center mb-8">💬 What Students & Parents Say</h1>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="rounded-xl shadow-lg p-6 flex flex-col justify-center bg-amber-50">
+                <p class="italic text-base mb-4">“Excellent teaching! My son got 9 in GCSE Maths.”</p>
+                <p class="text-gray-800 font-medium">— Mrs. Patel, UK</p>
+            </div>
+                        <div class="rounded-xl shadow-lg p-6 flex flex-col justify-center bg-lime-50">
+                <p class="italic text-base mb-4">“The online NEET prep is very structured!”</p>
+                <p class="text-gray-800 font-medium">— Ramesh, India</p>
+            </div>
+                        <div class="rounded-xl shadow-lg p-6 flex flex-col justify-center bg-emerald-50">
+                <p class="italic text-base mb-4">“Best SAT prep we’ve tried. Very responsive tutors.”</p>
+                <p class="text-gray-800 font-medium">— Diana, USA</p>
+            </div>
+                    </div>
+        <div class="text-center mt-6 space-x-4">
+            <a href="#" class="btn btn-primary btn-sm">📺 Watch Video Testimonials</a>
+            <a href="/ca/testimonials" class="btn btn-outline btn-sm">📚 Read More Reviews</a>
+        </div>
+    </div>
+</section>
+
+
+<section class="relative py-16 border-t border-gray-200 bg-cover bg-center" style="background-image:url('/images/gallery-bg.jpg')">
+    <div class="absolute inset-0 bg-white/60"></div>
+    <div class="relative container mx-auto px-4">
+    <h1 class="text-4xl font-bold text-center mb-8">📸 Our Journey in Pictures</h1>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <img src="/images/classroom.jpg" class="w-full h-64 object-cover rounded cursor-pointer" alt="Gallery">
+                    <img src="/images/online.jpg" class="w-full h-64 object-cover rounded cursor-pointer" alt="Gallery">
+                    <img src="/images/lab.jpg" class="w-full h-64 object-cover rounded cursor-pointer" alt="Gallery">
+                    <img src="/images/awards.jpg" class="w-full h-64 object-cover rounded cursor-pointer" alt="Gallery">
+            </div>
+    <div class="text-center mt-6">
+        <a href="/ca/gallery" class="btn btn-outline btn-sm">🖼️ View Full Gallery</a>
+    </div>
+</section>
+
+
+<section class="bg-blue-600 py-[5vh] text-white text-sm">
+    <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div>
+            <h1 class="text-[2.618rem] font-bold mb-6">📩 Get in Touch or Book a Free Demo</h1>
+                        <p class="text-lg mb-4">We’ll respond within 24&nbsp;hours.</p><ul class="list-disc list-inside space-y-2 text-base"><li>Personalised study plan</li><li>Free demo session</li><li>24×7 doubt support</li></ul></div>
+        <div class="bg-white rounded-xl shadow-lg p-6 text-gray-900"><form id="inquiryForm" method="POST" action="http://127.0.0.1:8000/ca/inquiry/submit" class="space-y-4">
+            <input type="hidden" name="_token" value="Qg5zecJxkXRGdMaYeHKLb5MZvv5M22NLbm4HBscm" autocomplete="off">            <input type="text" name="name" placeholder="Full Name" value="" class="w-full p-3 rounded  text-gray-900" required>
+                        <input type="email" name="email" placeholder="Email" value="" class="w-full p-3 rounded  text-gray-900" required>
+                        <input type="tel" name="phone" placeholder="Phone" value="" class="w-full p-3 rounded  text-gray-900">
+                        <textarea name="message" rows="4" placeholder="Message" class="w-full p-3 rounded  text-gray-900"></textarea>
+                        <div class="flex items-center">
+                <input type="checkbox" id="agree" class="mr-2" required>
+                <label for="agree" class="text-sm">I agree to be contacted</label>
+            </div>
+            <div id="inquiryResult" class="hidden mb-4"></div>
+            <button type="submit" class="btn btn-primary w-full">📨 Submit Inquiry</button>
+        </form></div>
+    </div>
+</section>
+
+    </main>
+
+    <footer class="bg-gray-900 text-white py-6">
+        <div class="container mx-auto px-4 text-center text-sm">
+            © 2025 Science Villa | Designed with ❤️
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({ once: true, duration: 800, offset: 120 });
+            // animate counters
+            const counters = document.querySelectorAll('.counter');
+            const speed = 40;
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting){
+                        const el = entry.target;
+                        const updateCount = () => {
+                            const target = +el.dataset.count;
+                            const count  = +el.innerText.replace(/\D/g,'');
+                            const inc = Math.ceil(target / speed);
+                            if(count < target){
+                                el.innerText = count + inc + (el.dataset.percent ? '%' : '+');
+                                setTimeout(updateCount, 30);
+                            } else {
+                                el.innerText = target + (el.dataset.percent ? '%' : '+');
+                            }
+                        };
+                        updateCount();
+                        observer.unobserve(el);
+                    }
+                })
+            }, { threshold: 0.6 });
+            counters.forEach(c=>observer.observe(c));
+        });
+    </script>
+    <script>
+ document.addEventListener('DOMContentLoaded', () => {
+   const form = document.getElementById('inquiryForm');
+   if (!form) return;
+   const resultBox = document.getElementById('inquiryResult');
+
+    // MacBook Dock-style real-time scaling based on cursor position
+    const container = document.querySelector('.card-container');
+    if(container){
+      const cards = Array.from(container.querySelectorAll('.course-card'));
+      const maxScale = 1.1;
+      const influence = 150; // pixels
+      function scaleCards(e){
+        const rect = container.getBoundingClientRect();
+        const mouseX = e.clientX;
+        cards.forEach(card =>{
+          const cardRect = card.getBoundingClientRect();
+          const cardCenter = cardRect.left + cardRect.width/2;
+          const dist = Math.abs(mouseX - cardCenter);
+          const scale = Math.max(1, maxScale - (dist / influence)*(maxScale-1));
+          card.style.transform = `scale(${scale})`;
+        });
+      }
+      function reset(){
+        cards.forEach(c=>c.style.transform='scale(1)');
+      }
+      container.addEventListener('mousemove', scaleCards);
+      container.addEventListener('mouseleave', reset);
+    }
+
+   form.addEventListener('submit', async (e) => {
+     e.preventDefault();
+     resultBox.classList.add('hidden');
+     resultBox.textContent = '';
+     form.querySelectorAll('.border-red-400').forEach(el => el.classList.remove('border-red-400'));
+     form.querySelectorAll('p.text-red-600').forEach(el => el.remove());
+     const submitBtn = form.querySelector('button[type="submit"]');
+     submitBtn.disabled = true;
+     submitBtn.classList.add('opacity-60');
+     const fd = new FormData(form);
+     try {
+       const res = await fetch(form.action, {
+         method: 'POST',
+         headers: {
+           'Accept': 'application/json',
+           'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+         },
+         body: fd
+       });
+       if (res.ok) {
+         const data = await res.json();
+         form.reset();
+         resultBox.className = 'bg-green-100 border border-green-400 text-green-800 px-4 py-3 rounded mb-4';
+         resultBox.textContent = data.message || 'Thank you!';
+         resultBox.classList.remove('hidden');
+       } else if (res.status === 422) {
+         const data = await res.json();
+         const errors = data.errors || {};
+         Object.entries(errors).forEach(([field,msgs]) => {
+           const input = form.querySelector(`[name="${field}"]`);
+           if (input) {
+             input.classList.add('border-red-400');
+             const p = document.createElement('p');
+             p.className = 'text-red-600 text-sm mt-1';
+             p.textContent = msgs[0];
+             input.insertAdjacentElement('afterend', p);
+           }
+         });
+       } else {
+         resultBox.className = 'bg-red-100 border border-red-400 text-red-800 px-4 py-3 rounded mb-4';
+         resultBox.textContent = 'Sorry, something went wrong. Please try again.';
+         resultBox.classList.remove('hidden');
+       }
+     } catch(err) {
+       resultBox.className = 'bg-red-100 border border-red-400 text-red-800 px-4 py-3 rounded mb-4';
+       resultBox.textContent = 'Network error. Please check your connection.';
+       resultBox.classList.remove('hidden');
+     } finally {
+       submitBtn.disabled = false;
+       submitBtn.classList.remove('opacity-60');
+     }
+   });
+ });
+</script>
+</body>
+</html>

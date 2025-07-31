@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="Qg5zecJxkXRGdMaYeHKLb5MZvv5M22NLbm4HBscm">
+    <title>Science Villa</title>
+    <link rel="preload" as="style" href="http://127.0.0.1:8000/build/assets/app-BY0FlDmp.css" /><link rel="modulepreload" href="http://127.0.0.1:8000/build/assets/app-DNxiirP_.js" /><link rel="stylesheet" href="http://127.0.0.1:8000/build/assets/app-BY0FlDmp.css" /><script type="module" src="http://127.0.0.1:8000/build/assets/app-DNxiirP_.js"></script>    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+    <style>
+    .animate-blob {
+        animation: blob 7s infinite;
+    }
+    .animation-delay-2000 {
+        animation-delay: 2s;
+    }
+    @keyframes blob {
+        0%,100%{ transform: translate(0px,0px) scale(1); }
+        33%{ transform: translate(30px,-20px) scale(1.1); }
+        66%{ transform: translate(-20px,20px) scale(0.9); }
+    }
+</style>
+</head>
+<body class="min-h-screen flex flex-col font-sans bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="/ca" class="text-xl font-bold text-blue-600">Science Villa</a>
+            <nav class="hidden md:flex space-x-6 text-sm">
+                <a href="/ca" class="hover:text-blue-600">Home</a>
+                <a href="/ca/about" class="hover:text-blue-600">About Us</a>
+                <a href="/ca/courses" class="hover:text-blue-600">Courses</a>
+                <a href="/ca/results" class="hover:text-blue-600">Results</a>
+                <a href="/ca/gallery" class="hover:text-blue-600">Gallery</a>
+                <a href="/ca/testimonials" class="hover:text-blue-600">Testimonials</a>
+                <a href="/ca/blog" class="hover:text-blue-600">Blog</a>
+                <a href="/ca/contact" class="hover:text-blue-600">Contact Us</a>
+            </nav>
+            <!-- Country Switcher -->
+            <div class="relative">
+                <select id="countrySwitcher" class="border rounded p-1 text-sm" onchange="location = this.value;">
+                                            <option value="/in" >🇮🇳 IN</option>
+                                            <option value="/uk" >🇬🇧 UK</option>
+                                            <option value="/us" >🇺🇸 US</option>
+                                            <option value="/ca" selected>🇨🇦 CA</option>
+                                            <option value="/au" >🇦🇺 AU</option>
+                                    </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1">
+        <section class="relative py-20 bg-gradient-to-b from-blue-50 via-white to-purple-50 overflow-hidden">
+    <!-- Decorative Blobs -->
+    <div class="absolute -top-20 -left-20 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+    <div class="absolute -bottom-20 -right-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+
+    <div class="container mx-auto px-4">
+        <h2 class="text-center text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-16" data-aos="fade-down">
+            What Our Students Say
+        </h2>
+
+        <!-- Testimonials Alternating Layout -->
+        <div class="max-w-5xl mx-auto space-y-12">
+                        <div class="flex flex-col lg:flex-row items-center gap-6 " data-aos="fade-up" data-aos-delay="0">
+                <!-- Avatar Side -->
+                <div class="flex-shrink-0">
+                    <div class="relative">
+                        <img src="/images/topper1.jpg" alt="Aisha Singh" class="w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-full shadow-lg ring-3 ring-white">
+                        <div class="absolute -bottom-1 -right-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold shadow-md">
+                            ⭐ 5
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Side -->
+                <div class="flex-1 text-center lg:text-left">
+                    <div class="relative bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                        <!-- Quote Icon -->
+                        <svg class="absolute top-3 left-3 w-6 h-6 text-blue-200" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                        
+                        <blockquote class="text-base lg:text-lg text-gray-700 leading-relaxed mb-4 pl-8">
+                            "ScienceVilla made complex topics so easy! I topped my class."
+                        </blockquote>
+                        
+                        <div class="flex items-center justify-start">
+                            <div class="">
+                                <h3 class="text-lg font-bold text-gray-900">Aisha Singh</h3>
+                                <p class="text-blue-600 font-medium text-sm">Class 10 Science</p>
+                                <div class="flex  mt-1">
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        <div class="flex flex-col lg:flex-row items-center gap-6 lg:flex-row-reverse" data-aos="fade-up" data-aos-delay="100">
+                <!-- Avatar Side -->
+                <div class="flex-shrink-0">
+                    <div class="relative">
+                        <img src="/images/topper2.jpg" alt="David Kumar" class="w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-full shadow-lg ring-3 ring-white">
+                        <div class="absolute -bottom-1 -right-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold shadow-md">
+                            ⭐ 5
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Side -->
+                <div class="flex-1 text-center lg:text-left">
+                    <div class="relative bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                        <!-- Quote Icon -->
+                        <svg class="absolute top-3 right-3 w-6 h-6 text-blue-200" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                        
+                        <blockquote class="text-base lg:text-lg text-gray-700 leading-relaxed mb-4 pr-8">
+                            "Amazing crash courses helped me score 650+. Highly recommend!"
+                        </blockquote>
+                        
+                        <div class="flex items-center justify-end lg:justify-start">
+                            <div class="text-right lg:text-left">
+                                <h3 class="text-lg font-bold text-gray-900">David Kumar</h3>
+                                <p class="text-blue-600 font-medium text-sm">NEET Prep</p>
+                                <div class="flex justify-end lg:justify-start mt-1">
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        <div class="flex flex-col lg:flex-row items-center gap-6 " data-aos="fade-up" data-aos-delay="200">
+                <!-- Avatar Side -->
+                <div class="flex-shrink-0">
+                    <div class="relative">
+                        <img src="/images/topper3.jpg" alt="Sara Lee" class="w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-full shadow-lg ring-3 ring-white">
+                        <div class="absolute -bottom-1 -right-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold shadow-md">
+                            ⭐ 5
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Side -->
+                <div class="flex-1 text-center lg:text-left">
+                    <div class="relative bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                        <!-- Quote Icon -->
+                        <svg class="absolute top-3 left-3 w-6 h-6 text-blue-200" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                        
+                        <blockquote class="text-base lg:text-lg text-gray-700 leading-relaxed mb-4 pl-8">
+                            "Improved my score by 140 points in just 2 months."
+                        </blockquote>
+                        
+                        <div class="flex items-center justify-start">
+                            <div class="">
+                                <h3 class="text-lg font-bold text-gray-900">Sara Lee</h3>
+                                <p class="text-blue-600 font-medium text-sm">SAT Prep</p>
+                                <div class="flex  mt-1">
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        <div class="flex flex-col lg:flex-row items-center gap-6 lg:flex-row-reverse" data-aos="fade-up" data-aos-delay="300">
+                <!-- Avatar Side -->
+                <div class="flex-shrink-0">
+                    <div class="relative">
+                        <img src="/images/topper4.jpg" alt="Mohit Rao" class="w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-full shadow-lg ring-3 ring-white">
+                        <div class="absolute -bottom-1 -right-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold shadow-md">
+                            ⭐ 5
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Side -->
+                <div class="flex-1 text-center lg:text-left">
+                    <div class="relative bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                        <!-- Quote Icon -->
+                        <svg class="absolute top-3 right-3 w-6 h-6 text-blue-200" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                        
+                        <blockquote class="text-base lg:text-lg text-gray-700 leading-relaxed mb-4 pr-8">
+                            "Live sessions made calculus fun. Scored 98%!"
+                        </blockquote>
+                        
+                        <div class="flex items-center justify-end lg:justify-start">
+                            <div class="text-right lg:text-left">
+                                <h3 class="text-lg font-bold text-gray-900">Mohit Rao</h3>
+                                <p class="text-blue-600 font-medium text-sm">Class 12 Maths</p>
+                                <div class="flex justify-end lg:justify-start mt-1">
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        <div class="flex flex-col lg:flex-row items-center gap-6 " data-aos="fade-up" data-aos-delay="10">
+                <!-- Avatar Side -->
+                <div class="flex-shrink-0">
+                    <div class="relative">
+                        <img src="/images/topper1.jpg" alt="Priya Sharma" class="w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-full shadow-lg ring-3 ring-white">
+                        <div class="absolute -bottom-1 -right-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold shadow-md">
+                            ⭐ 5
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Side -->
+                <div class="flex-1 text-center lg:text-left">
+                    <div class="relative bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                        <!-- Quote Icon -->
+                        <svg class="absolute top-3 left-3 w-6 h-6 text-blue-200" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                        
+                        <blockquote class="text-base lg:text-lg text-gray-700 leading-relaxed mb-4 pl-8">
+                            "Daily practice tests boosted my confidence tremendously."
+                        </blockquote>
+                        
+                        <div class="flex items-center justify-start">
+                            <div class="">
+                                <h3 class="text-lg font-bold text-gray-900">Priya Sharma</h3>
+                                <p class="text-blue-600 font-medium text-sm">JEE Main</p>
+                                <div class="flex  mt-1">
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        <div class="flex flex-col lg:flex-row items-center gap-6 lg:flex-row-reverse" data-aos="fade-up" data-aos-delay="160">
+                <!-- Avatar Side -->
+                <div class="flex-shrink-0">
+                    <div class="relative">
+                        <img src="/images/topper2.jpg" alt="Alex Chen" class="w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-full shadow-lg ring-3 ring-white">
+                        <div class="absolute -bottom-1 -right-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold shadow-md">
+                            ⭐ 5
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Side -->
+                <div class="flex-1 text-center lg:text-left">
+                    <div class="relative bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                        <!-- Quote Icon -->
+                        <svg class="absolute top-3 right-3 w-6 h-6 text-blue-200" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                        
+                        <blockquote class="text-base lg:text-lg text-gray-700 leading-relaxed mb-4 pr-8">
+                            "Interactive videos made physics concepts crystal clear."
+                        </blockquote>
+                        
+                        <div class="flex items-center justify-end lg:justify-start">
+                            <div class="text-right lg:text-left">
+                                <h3 class="text-lg font-bold text-gray-900">Alex Chen</h3>
+                                <p class="text-blue-600 font-medium text-sm">IGCSE Physics</p>
+                                <div class="flex justify-end lg:justify-start mt-1">
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        <div class="flex flex-col lg:flex-row items-center gap-6 " data-aos="fade-up" data-aos-delay="310">
+                <!-- Avatar Side -->
+                <div class="flex-shrink-0">
+                    <div class="relative">
+                        <img src="/images/topper3.jpg" alt="Ravi Patel" class="w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-full shadow-lg ring-3 ring-white">
+                        <div class="absolute -bottom-1 -right-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold shadow-md">
+                            ⭐ 5
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Side -->
+                <div class="flex-1 text-center lg:text-left">
+                    <div class="relative bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                        <!-- Quote Icon -->
+                        <svg class="absolute top-3 left-3 w-6 h-6 text-blue-200" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                        
+                        <blockquote class="text-base lg:text-lg text-gray-700 leading-relaxed mb-4 pl-8">
+                            "The animated experiments helped me understand reactions better."
+                        </blockquote>
+                        
+                        <div class="flex items-center justify-start">
+                            <div class="">
+                                <h3 class="text-lg font-bold text-gray-900">Ravi Patel</h3>
+                                <p class="text-blue-600 font-medium text-sm">Class 9 Chemistry</p>
+                                <div class="flex  mt-1">
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        <div class="flex flex-col lg:flex-row items-center gap-6 lg:flex-row-reverse" data-aos="fade-up" data-aos-delay="460">
+                <!-- Avatar Side -->
+                <div class="flex-shrink-0">
+                    <div class="relative">
+                        <img src="/images/topper4.jpg" alt="Emma Wilson" class="w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-full shadow-lg ring-3 ring-white">
+                        <div class="absolute -bottom-1 -right-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold shadow-md">
+                            ⭐ 5
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Side -->
+                <div class="flex-1 text-center lg:text-left">
+                    <div class="relative bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                        <!-- Quote Icon -->
+                        <svg class="absolute top-3 right-3 w-6 h-6 text-blue-200" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                        
+                        <blockquote class="text-base lg:text-lg text-gray-700 leading-relaxed mb-4 pr-8">
+                            "Detailed diagrams and quizzes made studying enjoyable."
+                        </blockquote>
+                        
+                        <div class="flex items-center justify-end lg:justify-start">
+                            <div class="text-right lg:text-left">
+                                <h3 class="text-lg font-bold text-gray-900">Emma Wilson</h3>
+                                <p class="text-blue-600 font-medium text-sm">AP Biology</p>
+                                <div class="flex justify-end lg:justify-start mt-1">
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        <div class="flex flex-col lg:flex-row items-center gap-6 " data-aos="fade-up" data-aos-delay="610">
+                <!-- Avatar Side -->
+                <div class="flex-shrink-0">
+                    <div class="relative">
+                        <img src="/images/topper1.jpg" alt="Arjun Mehta" class="w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-full shadow-lg ring-3 ring-white">
+                        <div class="absolute -bottom-1 -right-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold shadow-md">
+                            ⭐ 5
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Side -->
+                <div class="flex-1 text-center lg:text-left">
+                    <div class="relative bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                        <!-- Quote Icon -->
+                        <svg class="absolute top-3 left-3 w-6 h-6 text-blue-200" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                        
+                        <blockquote class="text-base lg:text-lg text-gray-700 leading-relaxed mb-4 pl-8">
+                            "Personalized study plans kept me on track all year."
+                        </blockquote>
+                        
+                        <div class="flex items-center justify-start">
+                            <div class="">
+                                <h3 class="text-lg font-bold text-gray-900">Arjun Mehta</h3>
+                                <p class="text-blue-600 font-medium text-sm">CBSE Class 11</p>
+                                <div class="flex  mt-1">
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        <div class="flex flex-col lg:flex-row items-center gap-6 lg:flex-row-reverse" data-aos="fade-up" data-aos-delay="760">
+                <!-- Avatar Side -->
+                <div class="flex-shrink-0">
+                    <div class="relative">
+                        <img src="/images/topper2.jpg" alt="Lisa Zhang" class="w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-full shadow-lg ring-3 ring-white">
+                        <div class="absolute -bottom-1 -right-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold shadow-md">
+                            ⭐ 5
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Side -->
+                <div class="flex-1 text-center lg:text-left">
+                    <div class="relative bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                        <!-- Quote Icon -->
+                        <svg class="absolute top-3 right-3 w-6 h-6 text-blue-200" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                        
+                        <blockquote class="text-base lg:text-lg text-gray-700 leading-relaxed mb-4 pr-8">
+                            "Step-by-step solutions saved me hours of confusion."
+                        </blockquote>
+                        
+                        <div class="flex items-center justify-end lg:justify-start">
+                            <div class="text-right lg:text-left">
+                                <h3 class="text-lg font-bold text-gray-900">Lisa Zhang</h3>
+                                <p class="text-blue-600 font-medium text-sm">IB Mathematics</p>
+                                <div class="flex justify-end lg:justify-start mt-1">
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        <div class="flex flex-col lg:flex-row items-center gap-6 " data-aos="fade-up" data-aos-delay="910">
+                <!-- Avatar Side -->
+                <div class="flex-shrink-0">
+                    <div class="relative">
+                        <img src="/images/topper3.jpg" alt="Karan Joshi" class="w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-full shadow-lg ring-3 ring-white">
+                        <div class="absolute -bottom-1 -right-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold shadow-md">
+                            ⭐ 5
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Side -->
+                <div class="flex-1 text-center lg:text-left">
+                    <div class="relative bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                        <!-- Quote Icon -->
+                        <svg class="absolute top-3 left-3 w-6 h-6 text-blue-200" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                        
+                        <blockquote class="text-base lg:text-lg text-gray-700 leading-relaxed mb-4 pl-8">
+                            "Fun learning games made studying feel like playing."
+                        </blockquote>
+                        
+                        <div class="flex items-center justify-start">
+                            <div class="">
+                                <h3 class="text-lg font-bold text-gray-900">Karan Joshi</h3>
+                                <p class="text-blue-600 font-medium text-sm">ICSE Class 8</p>
+                                <div class="flex  mt-1">
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        <div class="flex flex-col lg:flex-row items-center gap-6 lg:flex-row-reverse" data-aos="fade-up" data-aos-delay="1060">
+                <!-- Avatar Side -->
+                <div class="flex-shrink-0">
+                    <div class="relative">
+                        <img src="/images/topper4.jpg" alt="Maya Rodriguez" class="w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-full shadow-lg ring-3 ring-white">
+                        <div class="absolute -bottom-1 -right-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold shadow-md">
+                            ⭐ 5
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Side -->
+                <div class="flex-1 text-center lg:text-left">
+                    <div class="relative bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                        <!-- Quote Icon -->
+                        <svg class="absolute top-3 right-3 w-6 h-6 text-blue-200" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                        
+                        <blockquote class="text-base lg:text-lg text-gray-700 leading-relaxed mb-4 pr-8">
+                            "Virtual labs gave me hands-on experience safely."
+                        </blockquote>
+                        
+                        <div class="flex items-center justify-end lg:justify-start">
+                            <div class="text-right lg:text-left">
+                                <h3 class="text-lg font-bold text-gray-900">Maya Rodriguez</h3>
+                                <p class="text-blue-600 font-medium text-sm">A-Level Chemistry</p>
+                                <div class="flex justify-end lg:justify-start mt-1">
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                            <span class="text-yellow-400 text-sm">★</span>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-20" data-aos="fade-up" data-aos-delay="200">
+            <a href="/ca/contact" class="inline-block px-10 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-lg transform hover:scale-105 transition-transform duration-300">
+                Join Our Success Stories →
+            </a>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-6">
+        <div class="container mx-auto px-4 text-center text-sm">
+            © 2025 Science Villa | Designed with ❤️
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({ once: true, duration: 800, offset: 120 });
+            // animate counters
+            const counters = document.querySelectorAll('.counter');
+            const speed = 40;
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting){
+                        const el = entry.target;
+                        const updateCount = () => {
+                            const target = +el.dataset.count;
+                            const count  = +el.innerText.replace(/\D/g,'');
+                            const inc = Math.ceil(target / speed);
+                            if(count < target){
+                                el.innerText = count + inc + (el.dataset.percent ? '%' : '+');
+                                setTimeout(updateCount, 30);
+                            } else {
+                                el.innerText = target + (el.dataset.percent ? '%' : '+');
+                            }
+                        };
+                        updateCount();
+                        observer.unobserve(el);
+                    }
+                })
+            }, { threshold: 0.6 });
+            counters.forEach(c=>observer.observe(c));
+        });
+    </script>
+    </body>
+</html>
