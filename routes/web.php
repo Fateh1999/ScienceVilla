@@ -10,16 +10,6 @@ Route::get('/', function () {
     return view('country-select');
 });
 
-// Redirect root-level courses URL to default country path
-Route::redirect('/courses', '/in/courses');
-
-// Serve images via Laravel for static site export
-Route::get('/images/{path}', function ($path) {
-    $file = public_path("images/{$path}");
-    abort_unless(file_exists($file), 404);
-    return response()->file($file);
-})->where('path', '.*');
-
 // Allowed countries
 $countryCodes = 'in|uk|us|ca|au';
 
