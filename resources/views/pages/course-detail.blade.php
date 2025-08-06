@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <span class="text-green-600 font-bold mr-3">📋</span>
                                     <div>
                                         <p class="font-semibold">Questions</p>
-                                        <p class="text-sm">Answer all <strong>${chapter.quiz.length} questions</strong> by selecting the best option</p>
+                                        <p class="text-sm">Answer all questions by selecting the best option</p>
                                     </div>
                                 </div>
                                 
@@ -266,7 +266,19 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                             </div>
                             
-                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-6">
+                            <!-- Difficulty Select -->
+<div class="mt-6">
+    <label for="difficultySelect" class="block text-sm font-semibold text-gray-700 mb-1">Select Difficulty Level <span class="text-red-500">*</span></label>
+    <select id="difficultySelect" required class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600">
+        <option value="" selected disabled>Select level</option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+    </select>
+    <p id="difficultyError" class="hidden text-red-600 text-xs mt-1">Please choose a difficulty.</p>
+</div>
+
+<div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-6">
                                 <div class="flex">
                                     <span class="text-yellow-600 mr-2">⚠️</span>
                                     <p class="text-sm text-yellow-800">
@@ -300,25 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     </div>
                     
-                    <form id="quizForm">
-                        ${chapter.quiz.map((q,i)=>`
-                            <div class="mb-6 p-5 bg-white rounded-xl border border-emerald-100 shadow-sm hover:shadow-md transition">
-                                <p class=\"font-medium mb-3 text-gray-800 text-sm\">${i+1}. ${q.q}</p>
-                                ${q.options.map((opt,idx)=>`
-                                    <label class="flex items-center mb-2 cursor-pointer hover:bg-emerald-50/60 p-2 rounded">
-                                        <input type="radio" name="q${i}" value="${idx}" class="mr-3 text-emerald-600 focus:ring-emerald-500">
-                                        <span class=\"text-gray-700 text-sm\">${opt}</span>
-                                    </label>
-                                `).join('')}
-                            </div>
-                        `).join('')}
-                        
-                        <div class="flex justify-center mt-8">
-                            <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 text-sm rounded shadow">
-                                Submit Quiz
-                            </button>
-                        </div>
-                    </form>
+                    <form id="quizForm"></form>
                     
                     <div id="quizResults" class="hidden mt-8"></div>
                 </div>
@@ -326,6 +320,13 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         
         viewContainer.innerHTML = instructionsHtml;
+// attach listener to hide difficulty error when user selects a level
+const diffSelectEl = document.getElementById('difficultySelect');
+if (diffSelectEl) {
+    diffSelectEl.addEventListener('change', () => {
+        document.getElementById('difficultyError')?.classList.add('hidden');
+    });
+}
         
         // Store chapter data for later use
         window.currentQuizChapter = chapter;
@@ -333,6 +334,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Global functions for instruction modal buttons
     window.startQuiz = function() {
+        const diffSelect = document.getElementById('difficultySelect');
+        if (diffSelect && !diffSelect.value) {
+            document.getElementById('difficultyError')?.classList.remove('hidden');
+            return;
+        }
+        window.selectedDifficulty = diffSelect ? diffSelect.value : null;
+
         const modal = document.getElementById('instructionModal');
         const quizContainer = document.getElementById('quizContainer');
         
@@ -341,6 +349,31 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Show the quiz
         quizContainer.classList.remove('hidden');
+
+        // Replace questions based on difficulty
+        const qs = window.getQuizByDifficulty(window.currentQuizChapter, window.selectedDifficulty || 'easy');
+        const formEl = document.getElementById('quizForm');
+        if (formEl) {
+            formEl.innerHTML = qs.map((q,i)=>`
+                <div class="mb-6 p-5 bg-white rounded-xl border border-emerald-100 shadow-sm hover:shadow-md transition">
+                    <p class=\"font-medium mb-3 text-gray-800 text-sm\">${i+1}. ${q.q}</p>
+                    ${q.options.map((opt,idx)=>`
+                        <label class="flex items-center mb-2 cursor-pointer hover:bg-emerald-50/60 p-2 rounded">
+                            <input type="radio" name="q${i}" value="${idx}" class="mr-3 text-emerald-600 focus:ring-emerald-500">
+                            <span class=\"text-gray-700 text-sm\">${opt}</span>
+                        </label>
+                    `).join('')}
+                </div>
+            `).join('') + `
+                <div class="flex justify-center mt-8">
+                    <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 text-sm rounded shadow mr-3">
+                        Submit Quiz
+                    </button>
+                    <button type="button" onclick="endQuiz()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 text-sm rounded shadow">
+                        End Quiz
+                    </button>
+                </div>`;
+        }
         
         // Start the timer
         startQuizTimer();
@@ -352,6 +385,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
     
+    window.endQuiz = function() {
+        clearQuizTimer();
+        submitQuiz(window.currentQuizChapter);
+        // Switch back to crash course view
+        viewSel.value = 'crash';
+        render();
+    };
+
     window.cancelQuiz = function() {
         // Switch back to crash course view
         viewSel.value = 'crash';
@@ -413,7 +454,8 @@ document.addEventListener('DOMContentLoaded', function() {
         let blankAnswers = 0;
         const results = [];
         
-        chapter.quiz.forEach((q, i) => {
+        const usedQs = window.getQuizByDifficulty(chapter, window.selectedDifficulty || 'easy');
+        usedQs.forEach((q, i) => {
             const userAnswerValue = formData.get(`q${i}`);
             const userAnswer = userAnswerValue !== null ? parseInt(userAnswerValue) : null;
             
@@ -445,13 +487,13 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        const maxPossibleScore = chapter.quiz.length;
+        const maxPossibleScore = usedQs.length;
         const percentage = Math.max(0, Math.round((score / maxPossibleScore) * 100));
         const timeTaken = Math.floor((Date.now() - quizStartTime) / 1000);
         const minutes = Math.floor(timeTaken / 60);
         const seconds = timeTaken % 60;
         
-        displayResults(score, chapter.quiz.length, percentage, results, minutes, seconds, timeUp, correctAnswers, incorrectAnswers, blankAnswers);
+        displayResults(score, usedQs.length, percentage, results, minutes, seconds, timeUp, correctAnswers, incorrectAnswers, blankAnswers);
     }
     
     function displayResults(score, total, percentage, results, minutes, seconds, timeUp, correctAnswers, incorrectAnswers, blankAnswers) {

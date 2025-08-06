@@ -265,9 +265,9 @@
                 $featuredCourses = $coursesMap[$country] ?? $coursesMap['in'];
             @endphp
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             @foreach($featuredCourses as $c)
-            <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col aspect-[4/3]">
+            <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col h-full">
                 <h3 class="text-xl font-semibold mb-2">📘 {{ $c['title'] }}</h3>
                 <p class="text-base mb-1">🎯 {{ $c['grade'] }}</p>
                 <p class="text-base mb-1">🧠 {{ $c['board'] }}</p>
@@ -298,9 +298,9 @@
                 ['title' => 'Modern Calligraphy', 'icon' => '✒️', 'duration' => '4 Weeks', 'mode' => 'Online', 'description' => 'Master brush lettering and styles.', 'cta' => 'View Details', 'img' => '/images/calligraphy.jpeg'],
             ];
         @endphp
-        <div class="card-container grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="card-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch" style="grid-auto-rows:1fr">
             @foreach($coCourses as $c)
-            <div class="bg-gray-900 bg-cover bg-center text-white rounded-xl shadow-lg p-8 flex flex-col aspect-[4/3] course-card" style="background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('{{ $c['img'] }}')">
+            <div class="bg-gray-900 bg-cover bg-center text-white rounded-xl shadow-lg p-8 flex flex-col h-full course-card" style="background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('{{ $c['img'] }}')">
                 <h3 class="text-xl font-semibold mb-2">{{ $c['icon'] }} {{ $c['title'] }}</h3>
                 <p class="text-base mb-1">⏱ {{ $c['duration'] }}</p>
                 <p class="text-base mb-1">🧑‍🏫 {{ $c['mode'] }}</p>
@@ -372,7 +372,7 @@
 <section class="bg-gray-50 py-16 border-t border-gray-200">
     <div class="container mx-auto px-4">
         <h1 class="text-4xl font-bold text-center mb-8">💬 What Students & Parents Say</h1>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             @foreach([
                 'Excellent teaching! My son got 9 in GCSE Maths.' => 'Mrs. Patel, UK',
                 'The online NEET prep is very structured!' => 'Ramesh, India',
@@ -407,7 +407,7 @@
 </section>
 
 {{-- Quick Inquiry --}}
-<section class="bg-blue-600 py-[5vh] text-white text-sm">
+<section class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 py-[5vh] text-white text-sm">
     <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <div>
             <h1 class="text-[2.618rem] font-bold mb-6">📩 Get in Touch or Book a Free Demo</h1>

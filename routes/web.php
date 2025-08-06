@@ -10,6 +10,11 @@ Route::get('/', function () {
     return view('country-select');
 });
 
+// Auth pages
+Route::view('/login', 'auth.login')->name('login')->defaults('country','in');
+Route::view('/register', 'auth.register')->name('register')->defaults('country','in');
+Route::view('/forgot-password', 'auth.forgot-password')->name('password.request')->defaults('country','in');
+
 // Redirect root-level courses URL to default country path
 Route::redirect('/courses', '/in/courses');
 
@@ -33,6 +38,10 @@ Route::group(['prefix'=>'{country}','where'=>['country'=>$countryCodes]], functi
     Route::get('/testimonials', [PageController::class,'testimonials'])->name('testimonials');
     Route::get('/blog', [PageController::class,'blog'])->name('blog');
     Route::get('/contact', [PageController::class,'contact'])->name('contact');
+    // Country-scoped auth pages
+    Route::view('/login', 'auth.login')->name('login.country');
+    Route::view('/register', 'auth.register')->name('register.country');
+    Route::view('/forgot-password', 'auth.forgot-password')->name('password.request.country');
     
     // Form submission routes
     Route::post('/contact/submit', [ContactController::class, 'submitContact'])->name('contact.submit');

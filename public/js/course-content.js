@@ -8,11 +8,22 @@ window.COURSE_CONTENT = {
     {
       title: 'Rational Numbers',
       videoId: 'n2lJZg9gJJo',
-      quiz: [
-        { q: 'Additive identity of rational numbers is …', options: ['1', '0', '-1'], ans: 1 },
-        { q: 'Reciprocal of 5/3 is …', options: ['3/5', '5/3', '-5/3'], ans: 0 },
-        { q: 'Property (a/b)+(c/d)=(c/d)+(a/b) is …', options: ['Associative', 'Commutative', 'Distributive'], ans: 1 }
-      ],
+
+      // Difficulty-wise questions (dummy data)
+      quizByDifficulty: {
+        easy: [
+          { q: 'Additive inverse of 3/7 is …', options: ['-3/7', '7/3', '3/7'], ans: 0 },
+          { q: 'Is 4/5 a rational number?', options: ['Yes', 'No', 'Sometimes'], ans: 0 }
+        ],
+        medium: [
+          { q: 'Which of these is not rational?', options: ['2/3', '√2', '7/9'], ans: 1 },
+          { q: 'Sum of 1/2 and -3/4 is …', options: ['-1/4', '1/4', '-5/4'], ans: 0 }
+        ],
+        hard: [
+          { q: 'Solve x: (x/4) - (1/8) = 3/8', options: ['1', '2', '3/2'], ans: 0 },
+          { q: 'Between which two integers does -19/6 lie?', options: ['-4 & -3', '-3 & -2', '-2 & -1'], ans: 1 }
+        ]
+      },
       summary: [
         'Definition of rational numbers',
         'Closure, commutative & associative properties',
@@ -202,4 +213,34 @@ window.COURSE_CONTENT = {
       ]
     }
   ]
+};
+
+/**
+ * Get subset of quiz questions based on difficulty.
+ * If chapter contains explicit quizByDifficulty property, use it.
+ * Otherwise fall back to slicing the full quiz array:
+ *  - easy   : first 1/3
+ *  - medium : middle 1/3
+ *  - hard   : last 1/3
+ * @param {Object} chapter Chapter object from COURSE_CONTENT
+ * @param {('easy'|'medium'|'hard')} level Difficulty level
+ * @returns {Array} Array of question objects
+ */
+window.getQuizByDifficulty = function (chapter, level) {
+  if (!level || !chapter) return chapter?.quiz || [];
+
+  // If chapter already structured with quizByDifficulty
+  if (chapter.quizByDifficulty && chapter.quizByDifficulty[level]) {
+    return chapter.quizByDifficulty[level];
+  }
+
+  const quiz = chapter.quiz || [];
+  if (!quiz.length) return [];
+
+  const third = Math.ceil(quiz.length / 3);
+  let start = 0;
+  if (level === 'medium') start = third;
+  else if (level === 'hard') start = 2 * third;
+  const end = Math.min(start + third, quiz.length);
+  return quiz.slice(start, end);
 };
