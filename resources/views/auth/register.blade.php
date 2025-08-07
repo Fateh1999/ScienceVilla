@@ -49,6 +49,17 @@
                 
                 <input id="dob" name="dob" type="date" required class="w-full p-3 rounded {{ $errors->has('dob') ? 'border border-red-400' : 'border border-gray-300' }} text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-purple-600" value="{{ old('dob') }}">
                 @error('dob')<p class="text-red-600 text-sm mt-1">{{ $message }}</p>@enderror
+
+                <!-- Country Select -->
+                <select id="country" name="country" required class="w-full p-3 rounded {{ $errors->has('country') ? 'border border-red-400' : 'border border-gray-300' }} text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-purple-600">
+                    <option value="" disabled {{ old('country') ? '' : 'selected' }}>Select Country</option>
+                    <option value="in" {{ old('country') == 'in' ? 'selected' : '' }}>India</option>
+                    <option value="uk" {{ old('country') == 'uk' ? 'selected' : '' }}>United Kingdom</option>
+                    <option value="us" {{ old('country') == 'us' ? 'selected' : '' }}>United States</option>
+                    <option value="ca" {{ old('country') == 'ca' ? 'selected' : '' }}>Canada</option>
+                    <option value="au" {{ old('country') == 'au' ? 'selected' : '' }}>Australia</option>
+                </select>
+                @error('country')<p class="text-red-600 text-sm mt-1">{{ $message }}</p>@enderror
                 
                 <input id="password" name="password" type="password" required class="w-full p-3 rounded {{ $errors->has('password') ? 'border border-red-400' : 'border border-gray-300' }} text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-purple-600" placeholder="Password">
                 @error('password')<p class="text-red-600 text-sm mt-1">{{ $message }}</p>@enderror

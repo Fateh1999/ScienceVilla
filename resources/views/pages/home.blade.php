@@ -321,7 +321,7 @@
         <h1 class="text-4xl font-bold text-center mb-8">🎉 Meet Our Toppers</h1>
         
         <!-- Marquee - full width -->
-        <div class="relative overflow-hidden w-screen left-1/2 -translate-x-1/2 transform" data-aos="fade-up" data-aos-delay="300">
+        <div class="relative overflow-hidden w-screen left-1/2 -translate-x-1/2 transform">
             <div class="marquee-container py-8">
                 <div class="marquee-content">
                     @foreach([

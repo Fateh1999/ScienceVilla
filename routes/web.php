@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AuthController;
 
 // Country selection landing page
 Route::get('/', function () {
@@ -14,6 +15,11 @@ Route::get('/', function () {
 Route::view('/login', 'auth.login')->name('login')->defaults('country','in');
 Route::view('/register', 'auth.register')->name('register')->defaults('country','in');
 Route::view('/forgot-password', 'auth.forgot-password')->name('password.request')->defaults('country','in');
+
+// Auth actions
+Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
+Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Redirect root-level courses URL to default country path
 Route::redirect('/courses', '/in/courses');
@@ -42,6 +48,11 @@ Route::group(['prefix'=>'{country}','where'=>['country'=>$countryCodes]], functi
     Route::view('/login', 'auth.login')->name('login.country');
     Route::view('/register', 'auth.register')->name('register.country');
     Route::view('/forgot-password', 'auth.forgot-password')->name('password.request.country');
+    
+    // Country-scoped auth actions
+    Route::post('/register', [AuthController::class, 'register'])->name('register.country.submit');
+    Route::post('/login', [AuthController::class, 'login'])->name('login.country.submit');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout.country');
     
     // Form submission routes
     Route::post('/contact/submit', [ContactController::class, 'submitContact'])->name('contact.submit');

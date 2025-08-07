@@ -21,6 +21,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'dob',
+        'country',
+        'last_login_at',
+        'preferences',
     ];
 
     /**
@@ -34,15 +38,41 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * The attributes that should be cast.
      *
-     * @return array<string, string>
+     * @var array<string, string>
      */
-    protected function casts(): array
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+        'dob' => 'date',
+        'last_login_at' => 'datetime',
+        'preferences' => 'array',
+    ];
+
+    public function enrollments()
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return $this->hasMany(UserEnrollment::class);
+    }
+
+    public function progress()
+    {
+        return $this->hasMany(UserProgress::class);
+    }
+
+    public function getEnrolledCoursesAttribute()
+    {
+        return $this->enrollments()->with('course')->get()->pluck('course');
+    }
+
+    public function isEnrolledIn($courseId)
+    {
+        return $this->enrollments()->where('course_id', $courseId)->exists();
+    }
+
+    public function getCourseProgress($courseId)
+    {
+        $enrollment = $this->enrollments()->where('course_id', $courseId)->first();
+        return $enrollment ? $enrollment->progress_percentage : 0;
     }
 }

@@ -8,8 +8,6 @@ window.COURSE_CONTENT = {
     {
       title: 'Rational Numbers',
       videoId: 'n2lJZg9gJJo',
-
-      // Difficulty-wise questions (dummy data)
       quizByDifficulty: {
         easy: [
           { q: 'Additive inverse of 3/7 is …', options: ['-3/7', '7/3', '3/7'], ans: 0 },

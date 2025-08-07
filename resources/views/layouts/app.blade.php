@@ -32,8 +32,16 @@
                 
             </nav>
             <div class="hidden xl:flex items-center space-x-4 text-sm">
-                <a href="{{ $country ? '/'.$country.'/login' : '/login' }}" class="px-4 py-1 border border-blue-600 text-blue-600 rounded hover:bg-blue-50 transition">Sign In</a>
-                <a href="{{ $country ? '/'.$country.'/register' : '/register' }}" class="px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Sign Up</a>
+                @auth
+                    <span class="text-gray-700">Hi, {{ Auth::user()->name }}!</span>
+                    <form method="POST" action="{{ route('logout') }}" class="inline">
+                        @csrf
+                        <button type="submit" class="px-4 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition">Logout</button>
+                    </form>
+                @else
+                    <a href="{{ $country ? '/'.$country.'/login' : '/login' }}" class="px-4 py-1 border border-blue-600 text-blue-600 rounded hover:bg-blue-50 transition">Sign In</a>
+                    <a href="{{ $country ? '/'.$country.'/register' : '/register' }}" class="px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Sign Up</a>
+                @endauth
                 <select id="countrySwitcher" class="border rounded p-1 text-sm" onchange="location = this.value;">
                 @foreach(['in'=>'🇮🇳','uk'=>'🇬🇧','us'=>'🇺🇸','ca'=>'🇨🇦','au'=>'🇦🇺'] as $code=>$flag)
                     <option value="/{{ $code }}" {{ ($country??'')==$code ? 'selected' : '' }}>{{ $flag }} {{ strtoupper($code) }}</option>
@@ -53,8 +61,16 @@
             <a href="/{{ $country }}/blog" class="hover:text-blue-200">Blog</a>
             <a href="/{{ $country }}/contact" class="hover:text-blue-200">Contact Us</a>
             <div class="flex items-center space-x-3 pt-2 border-t">
-                <a href="{{ $country ? '/'.$country.'/login' : '/login' }}" class="flex-1 text-center px-4 py-1 border border-blue-600 text-blue-600 rounded hover:bg-blue-50 transition">Sign In</a>
-                <a href="{{ $country ? '/'.$country.'/register' : '/register' }}" class="flex-1 text-center px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Sign Up</a>
+                @auth
+                    <span class="text-gray-700 text-center flex-1">Hi, {{ Auth::user()->name }}!</span>
+                    <form method="POST" action="{{ route('logout') }}" class="flex-1">
+                        @csrf
+                        <button type="submit" class="w-full px-4 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition">Logout</button>
+                    </form>
+                @else
+                    <a href="{{ $country ? '/'.$country.'/login' : '/login' }}" class="flex-1 text-center px-4 py-1 border border-blue-600 text-blue-600 rounded hover:bg-blue-50 transition">Sign In</a>
+                    <a href="{{ $country ? '/'.$country.'/register' : '/register' }}" class="flex-1 text-center px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Sign Up</a>
+                @endauth
             </div>
             <select id="countrySwitcherMobile" class="border rounded p-1 text-sm w-full" onchange="location = this.value;">
                 @foreach(['in'=>'🇮🇳','uk'=>'🇬🇧','us'=>'🇺🇸','ca'=>'🇨🇦','au'=>'🇦🇺'] as $code=>$flag)
