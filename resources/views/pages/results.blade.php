@@ -21,7 +21,7 @@
                 ['name'=>'Sofia Gomez','exam'=>'IGCSE','score'=>'A* in 8 subjects','avatar'=>'/images/topper2.jpg'],
             ] as $idx=>$s)
             <div class="relative bg-white/90 backdrop-blur-md rounded-3xl shadow-xl p-8 flex flex-col items-center text-center" data-aos="zoom-in" data-aos-delay="{{ 100+$idx*50 }}">
-                <img src="{{ $s['avatar'] }}" alt="{{ $s['name'] }}" class="w-28 h-28 object-cover rounded-full ring-4 ring-purple-200 mb-4">
+                <img src="{{ !empty($s['avatar']) ? $s['avatar'] : '/images/user.png' }}" alt="{{ $s['name'] }}" class="w-28 h-28 object-cover rounded-full ring-4 ring-purple-200 mb-4">
                 <h3 class="text-xl font-semibold mb-1">{{ $s['name'] }}</h3>
                 <p class="text-purple-600 font-medium mb-2">{{ $s['exam'] }}</p>
                 <p class="text-gray-700 text-lg font-bold">{{ $s['score'] }}</p>

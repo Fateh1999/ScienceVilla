@@ -30,7 +30,7 @@
         <div class="hidden md:flex md:w-1/3 flex-col items-center justify-center p-10 bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 text-white space-y-6" data-aos="fade" data-aos-duration="700" data-aos-delay="150">
             <img src="/images/login avatar.png" alt="Avatar" class="w-28 h-28 avatar-float" />
             <div class="text-center max-w-xs">
-                <h3 class="font-semibold text-lg mb-2">Join Science Villa!</h3>
+                <h3 class="font-semibold text-lg mb-2">Join Fateh Science Villa!</h3>
                 <p class="text-sm opacity-90">Create an account to unlock courses and track your growth.</p>
             </div>
                 <ul>

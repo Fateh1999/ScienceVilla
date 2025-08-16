@@ -3,6 +3,10 @@
 @push('styles')
 <style>
 .course-card { transition: transform 0.2s ease; }
+.testimonial-marquee { display:flex; animation: marquee 30s linear infinite; white-space: nowrap; }
+.testimonial-marquee:hover { animation-play-state: paused; }
+.testimonial-card { min-width: 350px; max-width: 400px; flex-shrink: 0; margin-right: 2rem; white-space: normal; word-wrap: break-word; }
+@keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-100%); } }
 </style>
 @endpush
 
@@ -73,7 +77,7 @@
 
 {{-- Why Choose Us --}}
 <section class="container mx-auto px-4 py-16 bg-gray-50 border-t border-gray-200" data-aos="fade-up" data-aos-delay="600">
-    <h1 class="text-4xl font-bold text-center mb-10">Why Choose Science Villa?</h1>
+    <h1 class="text-4xl font-bold text-center mb-10">Why Choose Fateh Science Villa?</h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center" data-aos="fade-up" data-aos-delay="100">
 @php
         $why = [
@@ -305,87 +309,89 @@
                 <p class="text-base mb-1">⏱ {{ $c['duration'] }}</p>
                 <p class="text-base mb-1">🧑‍🏫 {{ $c['mode'] }}</p>
                 <p class="text-sm text-gray-200 mb-4">{{ $c['description'] }}</p>
-                <a href="/{{ $country }}/courses" class="mt-auto btn {{ $c['cta'] == 'Enroll Now' ? 'btn-primary' : 'btn-outline' }} btn-sm">{{ $c['cta'] }}</a>
+                <a href="/{{ $country }}/course-detail?type=cocurricular&activity={{ urlencode($c['title']) }}" class="mt-auto btn {{ $c['cta'] == 'Enroll Now' ? 'btn-primary' : 'btn-outline' }} btn-sm">{{ $c['cta'] }}</a>
             </div>
             @endforeach
         </div>
         <div class="text-center mt-8">
-            <a href="/{{ $country }}/courses" class="btn btn-outline btn-sm">✨ Explore All Co-Curricular</a>
+            <a href="/{{ $country }}/cocurricular" class="btn btn-outline btn-sm">✨ Explore All Co-Curricular</a>
         </div>
     </div>
-</section>
-
-{{-- Toppers Carousel (continuous auto-scrolling marquee) --}}
-<section class="bg-white border-t border-gray-200 py-16">
-    <div class="container mx-auto px-4">
-        <h1 class="text-4xl font-bold text-center mb-8">🎉 Meet Our Toppers</h1>
-        
-        <!-- Marquee - full width -->
-        <div class="relative overflow-hidden w-screen left-1/2 -translate-x-1/2 transform">
-            <div class="marquee-container py-8">
-                <div class="marquee-content">
-                    @foreach([
-                        ['name'=>'Aarav Sharma','detail'=>'98% CBSE Class 10','img'=>'/images/topper1.jpg'],
-                        ['name'=>'Sarah Kumar','detail'=>'Grade 9 – AQA GCSE','img'=>'/images/topper2.jpg'],
-                        ['name'=>'Rajat Bains','detail'=>'710/720 NEET 2024','img'=>'/images/topper3.jpg'],
-                        ['name'=>'Emma Lee','detail'=>'SAT 1540/1600','img'=>'/images/topper4.jpg'],
-                        ['name'=>'Priya Patel','detail'=>'95% CBSE Class 12','img'=>'/images/topper1.jpg'],
-                        ['name'=>'Michael Chen','detail'=>'A* A-Level Physics','img'=>'/images/topper2.jpg'],
-                        ['name'=>'Ananya Singh','detail'=>'JEE Main 99.8%','img'=>'/images/topper3.jpg'],
-                        ['name'=>'David Wilson','detail'=>'AP Calculus 5/5','img'=>'/images/topper4.jpg'],
-                    ] as $t)
-                        <div class="topper-card">
-                            <img src="{{ $t['img'] }}" alt="{{ $t['name'] }}" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
-                            <p class="font-semibold">{{ $t['name'] }}</p>
-                            <p class="text-sm text-gray-600">{{ $t['detail'] }}</p>
-                        </div>
-                    @endforeach
-                </div>
-                <!-- Duplicate content for seamless loop -->
-                <div class="marquee-content" aria-hidden="true">
-                    @foreach([
-                        ['name'=>'Aarav Sharma','detail'=>'98% CBSE Class 10','img'=>'/images/topper1.jpg'],
-                        ['name'=>'Sarah Kumar','detail'=>'Grade 9 – AQA GCSE','img'=>'/images/topper2.jpg'],
-                        ['name'=>'Rajat Bains','detail'=>'710/720 NEET 2024','img'=>'/images/topper3.jpg'],
-                        ['name'=>'Emma Lee','detail'=>'SAT 1540/1600','img'=>'/images/topper4.jpg'],
-                        ['name'=>'Priya Patel','detail'=>'95% CBSE Class 12','img'=>'/images/topper1.jpg'],
-                        ['name'=>'Michael Chen','detail'=>'A* A-Level Physics','img'=>'/images/topper2.jpg'],
-                        ['name'=>'Ananya Singh','detail'=>'JEE Main 99.8%','img'=>'/images/topper3.jpg'],
-                        ['name'=>'David Wilson','detail'=>'AP Calculus 5/5','img'=>'/images/topper4.jpg'],
-                    ] as $t)
-                        <div class="topper-card">
-                            <img src="{{ $t['img'] }}" alt="{{ $t['name'] }}" class="w-32 h-32 object-cover rounded-full mx-auto mb-4">
-                            <p class="font-semibold">{{ $t['name'] }}</p>
-                            <p class="text-sm text-gray-600">{{ $t['detail'] }}</p>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-        
-        <div class="text-center mt-6">
-            <a href="/{{ $country }}/results" class="btn btn-outline btn-sm">📜 See Full Result List</a>
-        </div>
 </section>
 
 {{-- Testimonials --}}
 <section class="bg-gray-50 py-16 border-t border-gray-200">
     <div class="container mx-auto px-4">
         <h1 class="text-4xl font-bold text-center mb-8">💬 What Students & Parents Say</h1>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+        <div class="relative overflow-hidden w-screen left-1/2 -translate-x-1/2 transform">
+            <div class="testimonial-marquee">
             @foreach([
-                'Excellent teaching! My son got 9 in GCSE Maths.' => 'Mrs. Patel, UK',
-                'The online NEET prep is very structured!' => 'Ramesh, India',
-                'Best SAT prep we’ve tried. Very responsive tutors.' => 'Diana, USA'
+                'Excellent teaching! My son got 9 in GCSE Maths. The personalized approach really helped him understand complex concepts.' => 'Mrs. Sarah Patel, UK Parent',
+                'The online NEET prep is very structured and comprehensive. Great mock tests and doubt clearing sessions!' => 'Ramesh Kumar, NEET Aspirant',
+                'Best SAT prep we have tried. Very responsive tutors and excellent study materials provided.' => 'Diana Chen, SAT Student',
+                'Amazing JEE preparation program. The faculty is highly experienced and supportive throughout.' => 'Arjun Sharma, JEE Main Topper',
+                'My daughter improved her grades significantly after joining Fateh Science Villa. Highly recommended!' => 'Mrs. Jennifer Wilson, Parent',
+                'The doubt clearing sessions are fantastic. Teachers are available 24/7 for any queries.' => 'Priya Agarwal, Class 12 Student',
+                'Interactive online classes with recorded sessions for revision. Perfect for busy schedules.' => 'Michael Brown, A-Level Student',
+                'Comprehensive study material and regular assessments helped me crack NEET with good score.' => 'Sneha Reddy, NEET Qualifier'
             ] as $quote => $author)
-            <div class="rounded-xl shadow-lg p-6 flex flex-col justify-center {{ ['bg-amber-50','bg-lime-50','bg-emerald-50','bg-orange-50','bg-stone-50'][$loop->index % 5] }}">
-                <p class="italic text-base mb-4">“{{ $quote }}”</p>
-                <p class="text-gray-800 font-medium">— {{ $author }}</p>
+            <div class="testimonial-card rounded-xl shadow-lg p-6 bg-white border-l-4 border-r-4 {{ ['border-blue-500','border-green-500','border-purple-500','border-pink-500','border-orange-500','border-teal-500','border-indigo-500','border-red-500'][$loop->index % 8] }}">
+                <div class="flex items-start space-x-3">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 bg-gradient-to-br {{ ['from-blue-400 to-blue-600','from-green-400 to-green-600','from-purple-400 to-purple-600','from-pink-400 to-pink-600','from-orange-400 to-orange-600','from-teal-400 to-teal-600','from-indigo-400 to-indigo-600','from-red-400 to-red-600'][$loop->index % 8] }} rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            {{ substr(explode(' ', explode(',', $author)[0])[0], 0, 1) }}
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex mb-2">
+                            @for($i = 0; $i < 5; $i++)
+                                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                </svg>
+                            @endfor
+                        </div>
+                        <p class="text-gray-700 text-sm leading-relaxed mb-3 italic">"{{ $quote }}"</p>
+                        <p class="text-gray-600 font-medium text-sm">— {{ $author }}</p>
+                    </div>
+                </div>
             </div>
             @endforeach
+            <!-- Duplicate content for seamless loop -->
+            @foreach([
+                'Excellent teaching! My son got 9 in GCSE Maths. The personalized approach really helped him understand complex concepts.' => 'Mrs. Sarah Patel, UK Parent',
+                'The online NEET prep is very structured and comprehensive. Great mock tests and doubt clearing sessions!' => 'Ramesh Kumar, NEET Aspirant',
+                'Best SAT prep we have tried. Very responsive tutors and excellent study materials provided.' => 'Diana Chen, SAT Student',
+                'Amazing JEE preparation program. The faculty is highly experienced and supportive throughout.' => 'Arjun Sharma, JEE Main Topper',
+                'My daughter improved her grades significantly after joining Fateh Science Villa. Highly recommended!' => 'Mrs. Jennifer Wilson, Parent',
+                'The doubt clearing sessions are fantastic. Teachers are available 24/7 for any queries.' => 'Priya Agarwal, Class 12 Student',
+                'Interactive online classes with recorded sessions for revision. Perfect for busy schedules.' => 'Michael Brown, A-Level Student',
+                'Comprehensive study material and regular assessments helped me crack NEET with good score.' => 'Sneha Reddy, NEET Qualifier'
+            ] as $quote => $author)
+            <div class="testimonial-card rounded-xl shadow-lg p-6 bg-white border-l-4 border-r-4 {{ ['border-blue-500','border-green-500','border-purple-500','border-pink-500','border-orange-500','border-teal-500','border-indigo-500','border-red-500'][$loop->index % 8] }}">
+                <div class="flex items-start space-x-3">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 bg-gradient-to-br {{ ['from-blue-400 to-blue-600','from-green-400 to-green-600','from-purple-400 to-purple-600','from-pink-400 to-pink-600','from-orange-400 to-orange-600','from-teal-400 to-teal-600','from-indigo-400 to-indigo-600','from-red-400 to-red-600'][$loop->index % 8] }} rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            {{ substr(explode(' ', explode(',', $author)[0])[0], 0, 1) }}
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex mb-2">
+                            @for($i = 0; $i < 5; $i++)
+                                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                </svg>
+                            @endfor
+                        </div>
+                        <p class="text-gray-700 text-sm leading-relaxed mb-3 italic">"{{ $quote }}"</p>
+                        <p class="text-gray-600 font-medium text-sm">— {{ $author }}</p>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            </div>
         </div>
         <div class="text-center mt-6 space-x-4">
-            <a href="#" class="btn btn-primary btn-sm">📺 Watch Video Testimonials</a>
+            {{-- <a href="#" class="btn btn-primary btn-sm">📺 Watch Video Testimonials</a> --}}
             <a href="/{{ $country }}/testimonials" class="btn btn-outline btn-sm">📚 Read More Reviews</a>
         </div>
     </div>

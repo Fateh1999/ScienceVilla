@@ -3,7 +3,7 @@
 @section('content')
 <section class="flex items-center justify-center py-24 bg-[radial-gradient(circle,_#e5e7eb_1.5px,_transparent_1.5px)] [background-size:32px_32px]">
 <div class="container mx-auto px-4 py-8 text-center">
-    <h1 class="text-5xl font-bold mb-4">Welcome to Science Villa</h1>
+    <h1 class="text-5xl font-bold mb-4">Welcome to Fateh Science Villa</h1>
     <p class="text-xl mb-8">Please choose your country</p>
     <div class="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
         @foreach([

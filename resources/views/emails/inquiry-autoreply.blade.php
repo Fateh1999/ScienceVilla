@@ -20,12 +20,12 @@
         </div>
         <div class="content">
             <p>Hi {{ $data['name'] ?? 'there' }},</p>
-            <p>We appreciate your interest in booking a free demo session with <strong>ScienceVilla</strong>. Our counsellor will connect with you soon via email and WhatsApp to confirm details and schedule the session.</p>
+            <p>We appreciate your interest in booking a free demo session with <strong>Fateh Science Villa</strong>. Our counsellor will connect with you soon via email and WhatsApp to confirm details and schedule the session.</p>
             <p>In the meantime, you can explore our popular courses or chat with us on WhatsApp for any quick questions.</p>
             <a class="btn" href="{{ url('/'.$data['country'].'/courses') }}">View Courses</a>
         </div>
         <div class="footer">
-            <p>&copy; {{ date('Y') }} ScienceVilla • All rights reserved</p>
+            <p>&copy; {{ date('Y') }} Fateh Science Villa • All rights reserved</p>
         </div>
     </div>
 </body>

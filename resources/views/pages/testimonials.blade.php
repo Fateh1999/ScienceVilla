@@ -14,7 +14,7 @@
         <!-- Testimonials Alternating Layout -->
         <div class="max-w-5xl mx-auto space-y-12">
 @php($testimonials=[
-                ['name'=>'Aisha Singh','course'=>'Class 10 Science','quote'=>'ScienceVilla made complex topics so easy! I topped my class.','avatar'=>'/images/topper1.jpg','rating'=>5],
+                ['name'=>'Aisha Singh','course'=>'Class 10 Science','quote'=>'Fateh Science Villa made complex topics so easy! I topped my class.','avatar'=>'/images/topper1.jpg','rating'=>5],
                 ['name'=>'David Kumar','course'=>'NEET Prep','quote'=>'Amazing crash courses helped me score 650+. Highly recommend!','avatar'=>'/images/topper2.jpg','rating'=>5],
                 ['name'=>'Sara Lee','course'=>'SAT Prep','quote'=>'Improved my score by 140 points in just 2 months.','avatar'=>'/images/topper3.jpg','rating'=>5],
                 ['name'=>'Mohit Rao','course'=>'Class 12 Maths','quote'=>'Live sessions made calculus fun. Scored 98%!','avatar'=>'/images/topper4.jpg','rating'=>5],
@@ -32,7 +32,7 @@
                 <!-- Avatar Side -->
                 <div class="flex-shrink-0">
                     <div class="relative">
-                        <img src="{{ $t['avatar'] }}" alt="{{ $t['name'] }}" class="w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-full shadow-lg ring-3 ring-white">
+                        <img src="{{ !empty($t['avatar']) ? $t['avatar'] : '/images/user.png' }}" alt="{{ $t['name'] }}" class="w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-full shadow-lg ring-3 ring-white">
                         <div class="absolute -bottom-1 -right-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold shadow-md">
                             ⭐ {{ $t['rating'] }}
                         </div>

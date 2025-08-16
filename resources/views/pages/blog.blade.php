@@ -9,7 +9,7 @@
         <div class="text-center mb-16" data-aos="zoom-in">
             <h2 class="py-2 inline-flex items-center gap-3 justify-center text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent drop-shadow-lg">
                 <svg class="w-10 h-10 sm:w-12 sm:h-12 text-purple-600 animate-bounce" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 00-3.162 19.479c.5.092.684-.217.684-.483 0-.237-.009-.866-.013-1.699-2.782.604-3.369-1.342-3.369-1.342-.455-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.004.07 1.532 1.033 1.532 1.033.893 1.531 2.343 1.089 2.915.833.091-.647.349-1.089.636-1.34-2.22-.253-4.555-1.112-4.555-4.954 0-1.094.39-1.989 1.029-2.689-.103-.253-.446-1.27.098-2.646 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.505.338 1.909-1.296 2.748-1.026 2.748-1.026.545 1.376.202 2.393.1 2.646.64.7 1.028 1.595 1.028 2.689 0 3.852-2.338 4.697-4.566 4.945.36.31.68.919.68 1.852 0 1.336-.012 2.414-.012 2.742 0 .268.182.58.688.481A10.002 10.002 0 0012 2z"/></svg>
-                <span>ScienceVilla Blog</span>
+                <span>Fateh Science Villa Blog</span>
             </h2>
             <p class="mt-6 text-lg sm:text-xl max-w-3xl mx-auto text-gray-600">Insights, tutorials &amp; study tips carefully curated by our mentors to elevate your learning journey.</p>
         </div>

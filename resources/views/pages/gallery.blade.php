@@ -11,7 +11,7 @@
             Gallery
         </h2>
         <p class="text-center max-w-2xl mx-auto text-gray-600 mb-16" data-aos="fade-up" data-aos-delay="100">
-            Explore snapshots from our classrooms, labs, and events showcasing the vibrant learning environment at ScienceVilla.
+            Explore snapshots from our classrooms, labs, and events showcasing the vibrant learning environment at Fateh Science Villa.
         </p>
 
         <!-- Image Grid -->

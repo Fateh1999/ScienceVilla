@@ -19,7 +19,7 @@ class InquiryAutoReplyMail extends Mailable
 
     public function build()
     {
-        return $this->subject('Thanks for your inquiry - ScienceVilla')
+        return $this->subject('Thanks for your inquiry - Fateh Science Villa')
                     ->view('emails.inquiry-autoreply')
                     ->with('data', $this->formData);
     }

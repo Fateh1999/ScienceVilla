@@ -25,6 +25,8 @@ class User extends Authenticatable
         'country',
         'last_login_at',
         'preferences',
+        'is_admin',
+        'admin_verified_at',
     ];
 
     /**
@@ -48,6 +50,8 @@ class User extends Authenticatable
         'dob' => 'date',
         'last_login_at' => 'datetime',
         'preferences' => 'array',
+        'is_admin' => 'boolean',
+        'admin_verified_at' => 'datetime',
     ];
 
     public function enrollments()
@@ -74,5 +78,26 @@ class User extends Authenticatable
     {
         $enrollment = $this->enrollments()->where('course_id', $courseId)->first();
         return $enrollment ? $enrollment->progress_percentage : 0;
+    }
+
+    public function isAdmin()
+    {
+        return $this->is_admin;
+    }
+
+    public function makeAdmin()
+    {
+        $this->update([
+            'is_admin' => true,
+            'admin_verified_at' => now(),
+        ]);
+    }
+
+    public function removeAdmin()
+    {
+        $this->update([
+            'is_admin' => false,
+            'admin_verified_at' => null,
+        ]);
     }
 }

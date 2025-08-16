@@ -19,7 +19,7 @@
     <div class="container">
         <div class="header">
             <h1>📧 New Contact Form Submission</h1>
-            <p>ScienceVilla - Educational Platform</p>
+            <p>Fateh Science Villa - Educational Platform</p>
         </div>
         
         <div class="content">
@@ -54,7 +54,7 @@
         </div>
         
         <div class="footer">
-            <p>This email was automatically generated from the ScienceVilla contact form.</p>
+            <p>This email was automatically generated from the Fateh Science Villa contact form.</p>
             <p>Please respond to the customer within 24 hours for the best experience.</p>
         </div>
     </div>

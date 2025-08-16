@@ -91,6 +91,10 @@
             <label class="block text-base md:text-lg font-semibold mb-1 text-stone-700" for="levelSelect">Select {{ $levelLabel }}</label>
             <select id="levelSelect" class="w-40 text-sm h-9 border border-amber-400 bg-amber-50/60 rounded-md px-3 focus:outline-none focus:ring-2 focus:ring-amber-600 shadow-inner"></select>
         </div>
+        <div>
+            <label class="block text-base md:text-lg font-semibold mb-1 text-stone-700" for="boardSelect">Select Board</label>
+            <select id="boardSelect" class="w-40 text-sm h-9 border border-blue-400 bg-blue-50/60 rounded-md px-3 focus:outline-none focus:ring-2 focus:ring-blue-600 shadow-inner"></select>
+        </div>
         <div id="subjectBlock" class="hidden">
             <label class="block text-base md:text-lg font-semibold mb-1 text-stone-700" for="subjectSelect">Select Subject</label>
             <select id="subjectSelect" class="w-52 text-sm h-9 border border-emerald-400 bg-emerald-50/60 rounded-md px-3 focus:outline-none focus:ring-2 focus:ring-emerald-600 shadow-inner"></select>
@@ -111,10 +115,20 @@
     const country = app.dataset.country;
 
     const levelSelect = document.getElementById('levelSelect');
+    const boardSelect = document.getElementById('boardSelect');
     const subjectBlock = document.getElementById('subjectBlock');
     const subjectSelect = document.getElementById('subjectSelect');
     const grid = document.getElementById('coursesGrid');
     const colors = ['bg-amber-50','bg-lime-50','bg-emerald-50','bg-orange-50','bg-blue-50','bg-indigo-50','bg-purple-50','bg-pink-50'];
+
+    // Country-specific board options
+    const boardOptions = {
+        'in': ['CBSE', 'ICSE'],
+        'uk': ['AQA', 'Edexcel', 'OCR'],
+        'us': ['Common Core', 'NGSS', 'College Board'],
+        'ca': ['Ontario', 'BC', 'Alberta'],
+        'au': ['NSW', 'VIC', 'QLD']
+    };
 
     // populate level options (8 .. maxLevel)
     const allSorted = [...courses].sort((a,b)=>a.level-b.level);
@@ -123,6 +137,11 @@
     for(let l=8; l<=maxLevel; l++){
         levelSelect.innerHTML += `<option value="${l}">${levelLabel} ${l}</option>`;
     }
+
+    // populate board options based on country
+    const countryBoards = boardOptions[country] || ['All Boards'];
+    boardSelect.innerHTML = '<option value="">Select Board</option>' + 
+        countryBoards.map(board => `<option value="${board}">${board}</option>`).join('');
 
     levelSelect.addEventListener('change', () => {
         const level = parseInt(levelSelect.value);
@@ -139,17 +158,27 @@
         subjectSelect.innerHTML = '<option value="">Select Subject</option>' + subjects.map(s=>`<option value="${s}">${s}</option>`).join('');
         subjectBlock.classList.remove('hidden');
         subjectSelect.value='';
-        const levelFiltered = courses.filter(c=>c.level === level);
-        renderCourses(levelFiltered);
+        filterCourses();
+    });
+
+    boardSelect.addEventListener('change', () => {
+        filterCourses();
     });
 
     subjectSelect.addEventListener('change', () => {
-        const level = parseInt(levelSelect.value);
-        const subject = subjectSelect.value;
-        if(!subject) { renderCourses(courses.filter(c=>c.level===level)); return; }
-        const filtered = courses.filter(c => c.level === level && c.subject === subject);
-        renderCourses(filtered);
+        filterCourses();
     });
+
+    function filterCourses(){
+        const level = parseInt(levelSelect.value);
+        const board = boardSelect.value;
+        const subject = subjectSelect.value;
+        let filtered = courses;
+        if(!isNaN(level)) filtered = filtered.filter(c => c.level === level);
+        if(board) filtered = filtered.filter(c => c.board === board);
+        if(subject) filtered = filtered.filter(c => c.subject === subject);
+        renderCourses(filtered);
+    }
 
     function renderCourses(list){
         if(list.length === 0){

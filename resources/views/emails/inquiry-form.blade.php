@@ -20,7 +20,7 @@
     <div class="container">
         <div class="header">
             <h1>🚀 New Quick Inquiry</h1>
-            <p>ScienceVilla - Free Demo Request</p>
+            <p>Fateh Science Villa - Free Demo Request</p>
         </div>
         
         <div class="content">
@@ -71,7 +71,7 @@
         </div>
         
         <div class="footer">
-            <p>This email was automatically generated from the ScienceVilla quick inquiry form.</p>
+            <p>This email was automatically generated from the Fateh Science Villa quick inquiry form.</p>
             <p><strong>Remember:</strong> Quick response leads to higher conversion rates!</p>
         </div>
     </div>

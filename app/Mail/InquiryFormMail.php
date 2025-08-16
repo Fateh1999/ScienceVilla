@@ -19,7 +19,7 @@ class InquiryFormMail extends Mailable
 
     public function build()
     {
-        return $this->subject('New Quick Inquiry - ScienceVilla')
+        return $this->subject('New Quick Inquiry - Fateh Science Villa')
                     ->view('emails.inquiry-form')
                     ->with('data', $this->formData);
     }

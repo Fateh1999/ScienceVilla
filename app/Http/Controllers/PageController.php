@@ -37,6 +37,11 @@ class PageController extends Controller
         return $this->view('pages.courses', $country);
     }
 
+    public function cocurricular(Request $request, string $country)
+    {
+        return $this->view('pages.cocurricular', $country);
+    }
+
     public function results(Request $request, string $country)
     {
         return $this->view('pages.results', $country);

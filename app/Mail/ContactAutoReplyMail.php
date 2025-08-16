@@ -19,7 +19,7 @@ class ContactAutoReplyMail extends Mailable
 
     public function build()
     {
-        return $this->subject('We received your message - ScienceVilla')
+        return $this->subject('We received your message - Fateh Science Villa')
                     ->view('emails.contact-autoreply')
                     ->with('data', $this->formData);
     }
